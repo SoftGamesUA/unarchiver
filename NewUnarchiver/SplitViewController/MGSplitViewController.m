@@ -1189,7 +1189,11 @@
 
 - (void) handlePanGesture:(UIPanGestureRecognizer *)sender
 {
-    if (_isDetailHidden) return;
+    if (_isDetailHidden)
+    {
+        [self restoreDetailVC];
+        return;
+    }
     
     if (sender.state == UIGestureRecognizerStateChanged)
 	{

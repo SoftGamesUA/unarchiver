@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>UnArchiver</string>
+	<string>Filer</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>

@@ -71,22 +71,16 @@ enum Sec1TableRows
 
 - (void) customizeInterface
 {
-    [self setImageBorder:[UIImage imageNamed:@"folderBorder"]];
+    UIImage * patternImage = [UIImage imageNamed:@"folderBorder"];
+    [self setImageBorder:patternImage];
     
     [navBar setBackgroundImage:[UIImage imageNamed:@"navBarBG"]];
     [navBar setIconImage:[UIImage imageNamed:@"homeNavBarIcon"]];
     [navBar setViewModeButtonImage:[UIImage imageNamed:@"listBtnFolder"]];
     [navBar setSettingsButtonImage:[UIImage imageNamed:@"settingsBtnFolder"]];
-    [navBar setLabelTextColor:[UIColor orangeColor]];
+    [navBar setLabelTextColor:[UIColor colorWithPatternImage:patternImage]];
     [navBar setLabelText:@"UnArchiver (2.0)"];
     [navBar setSubLabelText:NSLocalizedString(@"Home", nil)];
-    
-    [toolBar setImage:[UIImage imageNamed:@"addBtnFolder"] forBtn:ToolBarBtnAdd];
-    [toolBar setImage:[UIImage imageNamed:@"shareBtnFolder"] forBtn:ToolBarBtnShare];
-    [toolBar setImage:[UIImage imageNamed:@"ccpBtnFolder"] forBtn:ToolBarBtnCCP];
-    [toolBar setImage:[UIImage imageNamed:@"archiveBtnFolder"] forBtn:ToolBarBtnArchive];
-    [toolBar setImage:[UIImage imageNamed:@"deleteBtnFolder"] forBtn:ToolBarBtnDelete];
-    [toolBar setImage:[UIImage imageNamed:@"helpBtnFolder"] forBtn:ToolBarBtnHelp];
 }
 
 - (id)init
@@ -166,20 +160,20 @@ enum Sec1TableRows
     if (cell == nil) 
     {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+    
+        UIImage *image = [[UIImage imageNamed:@"cellBgHome"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+        UIImageView *bg = [[UIImageView alloc] initWithImage:image];
+        image = [[UIImage imageNamed:@"cellBgHomePush"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+        UIImageView *bgSelected = [[UIImageView alloc] initWithImage:image];
+        cell.backgroundView = bg;
+        cell.selectedBackgroundView = bgSelected;
+        [bg release];
+        [bgSelected release];
+        
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+        cell.textLabel.highlightedTextColor = cell.textLabel.textColor;
     }
-    
-    UIImage *image = [[UIImage imageNamed:@"cellBgHome"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
-    UIImageView *bg = [[UIImageView alloc] initWithImage:image];
-    image = [[UIImage imageNamed:@"cellBgHomePush"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
-    UIImageView *bgSelected = [[UIImageView alloc] initWithImage:image];
-    cell.backgroundView = bg;
-    cell.selectedBackgroundView = bgSelected;
-    [bg release];
-    [bgSelected release];
-    
-    cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.textLabel.highlightedTextColor = cell.textLabel.textColor;
-    
+        
     UIImage *icon, *iconPush;
     
     if (indexPath.section == 0)

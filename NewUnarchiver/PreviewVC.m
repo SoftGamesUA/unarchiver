@@ -67,12 +67,13 @@
 
 - (void) customizeInterface
 {   
-    [self setImageBorder:[UIImage imageNamed:@"folderBorder"]];
+    UIImage * patternImage = [UIImage imageNamed:@"folderBorder"];
+    [self setImageBorder:patternImage];
     
     [navBar setBackgroundImage:[UIImage imageNamed:@"navBarBG"]];
     [navBar setIconImage:[UIImage imageNamed:@"previewModeIcon"]];
     [navBar setViewModeButtonImage:[UIImage imageNamed:@"listBtnFolder"]];
-    [navBar setLabelTextColor:[UIColor orangeColor]];
+    [navBar setLabelTextColor:[UIColor colorWithPatternImage:patternImage]];
     [navBar setLabelText:NSLocalizedString(@"Preview", nil)];
 }
 

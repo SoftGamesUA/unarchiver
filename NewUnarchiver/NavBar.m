@@ -73,7 +73,7 @@
             _subLabel = [[UILabel alloc] initWithFrame:subLabelFrame];
             _subLabel.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;      
             _subLabel.backgroundColor = [UIColor clearColor];
-            _subLabel.textColor = [UIColor grayColor];
+            _subLabel.textColor = [UIColor blackColor];
             _subLabel.textAlignment = UITextAlignmentLeft;
             _subLabel.font = [_subLabel.font fontWithSize:12];
             [self addSubview:_subLabel];
@@ -103,7 +103,7 @@
             _subLabel = [[UILabel alloc] initWithFrame:subLabelFrame];
             _subLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;      
             _subLabel.backgroundColor = [UIColor clearColor];
-            _subLabel.textColor = [UIColor grayColor];
+            _subLabel.textColor = [UIColor blackColor];
             _subLabel.textAlignment = UITextAlignmentLeft;
             _subLabel.font = [_subLabel.font fontWithSize:12];
             [self addSubview:_subLabel];

@@ -190,7 +190,7 @@ static ALAssetsLibrary * alLibrary = nil;
 {    
     UIImageView *bg = [[UIImageView alloc] initWithFrame:contentView.bounds];
     bg.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    UIImage * img = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tableBg.png" ofType:nil]];
+    UIImage * img = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tableBg" ofType:@"png"]];
     bg.image = img;
     [contentView addSubview:bg];
     [bg release];

@@ -21,19 +21,19 @@
     {
          int gap = 5;
         
-        UIImage * img = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"cellBg.png" ofType:nil]];
+        UIImage * img = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"cellBg" ofType:@"png"]];
         UIImageView * bg = [[UIImageView alloc] initWithImage:img];
         self.backgroundView = bg;
         [bg release];
         [img release];
         
-        img = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"selectedCellBg.png" ofType:nil]];
+        img = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"selectedCellBg" ofType:@"png"]];
         UIImageView * bgSelected = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selectedCellBg.png"]];
         self.selectedBackgroundView = bgSelected;
         [bgSelected release];
         [img release];
         
-        img = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"checkboxUNcheked.png" ofType:nil]];
+        img = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"checkboxUNcheked" ofType:@"png"]];
         self.imageView.image = img;
         [img release];
 
@@ -58,9 +58,9 @@
     UIImage * img;
     
     if (selected)
-        img = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"checkboxCheked.png" ofType:nil]];
+        img = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"checkboxCheked" ofType:@"png"]];
     else
-        img = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"checkboxUNcheked.png" ofType:nil]];
+        img = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"checkboxUNcheked" ofType:@"png"]];
     
     self.imageView.image = img;
     [img release];

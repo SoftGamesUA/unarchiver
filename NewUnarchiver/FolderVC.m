@@ -16,7 +16,8 @@
 
 - (void) customizeInterface
 {
-    [self setImageBorder:[UIImage imageNamed:@"folderBorder"]];
+    UIImage * patternImage = [UIImage imageNamed:@"folderBorder"];
+    [self setImageBorder:patternImage];
     
     [navBar setBackgroundImage:[UIImage imageNamed:@"navBarBG"]];
     [navBar setIconImage:[UIImage imageNamed:@"folderNavBarIcon"]];
@@ -24,7 +25,7 @@
     [navBar setViewModeButtonImage:[UIImage imageNamed:@"listBtnFolder"]];
     [navBar setSettingsButtonImage:[UIImage imageNamed:@"settingsBtnFolder"]];
     [navBar setPreviewButtonImage:[UIImage imageNamed:@"previewBtnFolder"]];
-    [navBar setLabelTextColor:[UIColor orangeColor]];
+    [navBar setLabelTextColor:[UIColor colorWithPatternImage:patternImage]];
     
     [toolBar setImage:[UIImage imageNamed:@"addBtnFolder"] forBtn:ToolBarBtnAdd];
     [toolBar setImage:[UIImage imageNamed:@"shareBtnFolder"] forBtn:ToolBarBtnShare];

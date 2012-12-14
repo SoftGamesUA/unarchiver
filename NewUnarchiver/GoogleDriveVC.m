@@ -98,13 +98,39 @@ typedef void (^LoadFileToCacheBlock)(NSString *);
     [super reloadFiles];
 }
 
-- (NSString *)MIMETypeFileName:(NSString *)path
+- (NSString *)MIMETypeForPath:(NSString *)path
 {
     CFStringRef pathExtension = (CFStringRef)[path pathExtension];
     CFStringRef type = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension, NULL);    
     NSString * mimeType = (NSString *)UTTypeCopyPreferredTagWithClass(type, kUTTagClassMIMEType);
+    CFRelease(type);
+
+    return [mimeType autorelease];
+}
+
+- (NSString *)pathExtensionForMIMEType:(NSString *)mimeType
+{
+    CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, (CFStringRef)mimeType, NULL);
+    NSString * extension = (NSString *)UTTypeCopyPreferredTagWithClass(uti, kUTTagClassFilenameExtension);
     
-    return mimeType;
+    return [extension autorelease];
+}
+
+- (NSString *)MIMETypeGoogleDocType:(NSString *)type
+{
+    NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"application/vnd.openxmlformats-officedocument.wordprocessingml.document", @"application/vnd.google-apps.document",
+                          @"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", @"application/vnd.google-apps.spreadsheet",
+                          @"image/png", @"application/vnd.google-apps.drawing",
+                          @"application/vnd.openxmlformats-officedocument.presentationml.presentation", @"application/vnd.google-apps.presentation",nil];
+    
+    NSString * MIMEType = [dic objectForKey:type];
+    if (!MIMEType)
+    {
+        MIMEType = @"application/pdf";
+    }
+    
+    return MIMEType;
 }
 
 #pragma mark - View lifecycle
@@ -150,7 +176,6 @@ typedef void (^LoadFileToCacheBlock)(NSString *);
                                                           clientID:kClientId
                                                       clientSecret:kClientSecret];
     
-    [GTMOAuth2ViewControllerTouch revokeTokenForGoogleAuthentication:auth];
     if ([auth canAuthorize])
     {
         [self finishAuthorization:auth];
@@ -342,9 +367,37 @@ typedef void (^LoadFileToCacheBlock)(NSString *);
         {
             if ([item.labels.trashed boolValue])    continue;
             
-            FileObject * file = [FileObject fileWithID:item.identifier displayName:item.title];
+            FileObject * file = [[FileObject alloc] init];
+            file.ID = item.identifier;
             file.isFolder = [item.mimeType isEqualToString:@"application/vnd.google-apps.folder"];
-            file.path = item.downloadUrl;
+            
+            if (file.isFolder)
+            {
+                file.displayName = item.title;
+            }
+            else if (item.downloadUrl)
+            {
+                file.path = item.downloadUrl;
+                file.displayName = item.title;
+            }
+            else if (item.exportLinks)
+            {
+                NSString * MIMEType = [self MIMETypeGoogleDocType:item.mimeType];
+                NSString * path = [item.exportLinks JSONValueForKey:MIMEType];
+                if (!path)
+                {
+                    continue;
+                }
+                
+                file.path = path;
+                NSString * ext = [self pathExtensionForMIMEType:MIMEType];
+                file.displayName = [[item.title stringByDeletingPathExtension] stringByAppendingPathExtension:ext];
+            }
+            else
+            {
+                continue;
+            }
+            
             [files addObject:file];
         }
         self.googleFileList = nil;
@@ -394,7 +447,7 @@ typedef void (^LoadFileToCacheBlock)(NSString *);
     {
         if (overWrite)
         {
-            NSPredicate * predicate = [NSPredicate predicateWithFormat:@"displayName == %@", file.displayName];
+            NSPredicate * predicate = [NSPredicate predicateWithFormat:@"displayName == %@", file.pasteName];
             NSArray * result = [self.currentFileList filteredArrayUsingPredicate:predicate];
             if ([result count] != 1)
             {
@@ -586,7 +639,7 @@ typedef void (^LoadFileToCacheBlock)(NSString *);
     NSFileHandle * fileHandle = [NSFileHandle fileHandleForReadingAtPath:file.path];
     if (fileHandle)
     {
-        NSString * MIMEType = [self MIMETypeFileName:file.path];
+        NSString * MIMEType = [self MIMETypeForPath:file.path];
         GTLUploadParameters * uploadParameters = [GTLUploadParameters uploadParametersWithFileHandle:fileHandle MIMEType:MIMEType];
         GTLDriveFile * newFile = [GTLDriveFile object];
         newFile.title = file.pasteName;

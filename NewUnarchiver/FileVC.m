@@ -10,7 +10,8 @@
 
 #import "PopoverBgViews.h"
 #import "FileCell.h"
-#import "HelpView.h"
+#import "ODRefreshControl.h"
+#import "HelpVC.h"
 
 static NSString * passwordMissionKey = @"passwordMission";
 
@@ -53,7 +54,7 @@ enum
 {
     UIImageView * bgView = [[UIImageView alloc] initWithFrame:contentView.bounds];
     bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    UIImage * bgImg = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"tableBg.png" ofType:nil]];
+    UIImage * bgImg = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"tableBg" ofType:@"png"]];
     bgView.image = bgImg;
     [contentView addSubview:bgView];
     [bgView release];
@@ -67,6 +68,11 @@ enum
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _tableView.allowsMultipleSelection = true;
     _tableView.backgroundColor = [UIColor clearColor];
+    [contentView addSubview:_tableView];
+    
+    ODRefreshControl * refreshControl = [[ODRefreshControl alloc] initInScrollView:_tableView];
+    [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [refreshControl release];
     
     tableFrame.origin.y = tableFrame.origin.y + tableFrame.size.height;
     tableFrame.size.height = (cellHeight / 1.5);
@@ -75,15 +81,13 @@ enum
     _freeSpaceLabel.backgroundColor = [UIColor clearColor];
     _freeSpaceLabel.textAlignment = UITextAlignmentCenter;
     [contentView addSubview:_freeSpaceLabel];
-    
-    [contentView addSubview:_tableView];
 }
 
 - (void)initAddFilesBtnsView
 {
     int gap = 5;
-    UIImage * btnBg = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"newBtnBg.png" ofType:nil]];
-    UIImage * btnBgPush = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"newBtnBgPush.png" ofType:nil]];
+    UIImage * btnBg = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"newBtnBg" ofType:@"png"]];
+    UIImage * btnBgPush = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"newBtnBgPush" ofType:@"png"]];
     
     CGRect btnFrame = CGRectZero;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)   btnFrame = CGRectMake(0, 0, btnBg.size.width, btnBg.size.height);
@@ -91,8 +95,8 @@ enum
     
     UIButton * newDocBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [newDocBtn addTarget:self action:@selector(newDocBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    UIImage * newDocBtnImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"txtIcon.png" ofType:nil]];
-    UIImage * newDocBtnImagePush = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"txtIconPush.png" ofType:nil]];
+    UIImage * newDocBtnImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"txtIcon" ofType:@"png"]];
+    UIImage * newDocBtnImagePush = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"txtIconPush" ofType:@"png"]];
     newDocBtn.frame = btnFrame;
     [newDocBtn setBackgroundImage:btnBg forState:UIControlStateNormal];
     [newDocBtn setBackgroundImage:btnBgPush forState:UIControlStateHighlighted];
@@ -104,8 +108,8 @@ enum
     btnFrame.origin.x += btnFrame.size.width + gap;
     UIButton * newImgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [newImgBtn addTarget:self action:@selector(newImgBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    UIImage * newImgBtnImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"imageIcon.png" ofType:nil]];
-    UIImage * newImgBtnImagePush = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"imageIconPush.png" ofType:nil]];
+    UIImage * newImgBtnImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"imageIcon" ofType:@"png"]];
+    UIImage * newImgBtnImagePush = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"imageIconPush" ofType:@"png"]];
     newImgBtn.frame = btnFrame;
     [newImgBtn setBackgroundImage:btnBg forState:UIControlStateNormal];
     [newImgBtn setBackgroundImage:btnBgPush forState:UIControlStateHighlighted];
@@ -117,8 +121,8 @@ enum
     btnFrame.origin.x += btnFrame.size.width + gap;
     UIButton * newPhotoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [newPhotoBtn addTarget:self action:@selector(newPhotoBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    UIImage * newPhotoBtnImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"photoIcon.png" ofType:nil]];
-    UIImage * newPhotoBtnImagePush = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"photoIconPush.png" ofType:nil]];
+    UIImage * newPhotoBtnImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"photoIcon" ofType:@"png"]];
+    UIImage * newPhotoBtnImagePush = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"photoIconPush" ofType:@"png"]];
     newPhotoBtn.frame = btnFrame;
     [newPhotoBtn setBackgroundImage:btnBg forState:UIControlStateNormal];
     [newPhotoBtn setBackgroundImage:btnBgPush forState:UIControlStateHighlighted];
@@ -158,7 +162,7 @@ enum
     _emptyFolderView = [[UIView alloc] initWithFrame:_tableView.frame];
     _emptyFolderView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    UIImage * img = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"folderBgImage.png" ofType:nil]];
+    UIImage * img = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"folderBgImage" ofType:@"png"]];
     UIImageView *folderImageView = [[UIImageView alloc] initWithImage:img];
     [img release];
     
@@ -1223,7 +1227,7 @@ enum
     UIImage * icon;
     if (file.isFolder)
     {
-        icon = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"folderIcon.png" ofType:nil]];
+        icon = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"folderIcon" ofType:@"png"]];
     }
     else
     {
@@ -1239,13 +1243,13 @@ enum
     UIImage * accBtnImg, * accBtnImg1;
     if (file.isFolder)
     {
-        accBtnImg = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"folderAccessoryBtn.png" ofType:nil]];
-        accBtnImg1 = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"folderAccessoryBtnPush.png" ofType:nil]];
+        accBtnImg = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"folderAccessoryBtn" ofType:@"png"]];
+        accBtnImg1 = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"folderAccessoryBtnPush" ofType:@"png"]];
     }
     else
     {
-        accBtnImg = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"fileAccessoryBtn.png" ofType:nil]];
-        accBtnImg1 = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"fileAccessoryBtnPush.png" ofType:nil]];
+        accBtnImg = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"fileAccessoryBtn" ofType:@"png"]];
+        accBtnImg1 = [[UIImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"fileAccessoryBtnPush" ofType:@"png"]];
     }
     [accessoryBtn setBackgroundImage:accBtnImg forState:UIControlStateNormal];
     [accessoryBtn setBackgroundImage:accBtnImg1 forState:UIControlStateHighlighted];
@@ -1433,18 +1437,12 @@ enum
     }
     else if (btnTag == ToolBarBtnHelp)
     {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
-            HelpView *helpView = [[HelpView alloc] initWithFrame:appDelegate.splitVC.view.bounds];
-            [appDelegate.splitVC.view addSubview:helpView];
-            [helpView release];
-        }
-        else
-        {
-            HelpView *helpView = [[HelpView alloc] initWithFrame:self.view.bounds];
-            [self.view addSubview:helpView];
-            [helpView release];
-        }
+        HelpVC * vc = [[HelpVC alloc] init];
+        UINavigationController * nc = [[UINavigationController alloc] initWithRootViewController:vc];
+        //nc.modalPresentationStyle = UIModalPresentationFormSheet;
+        [appDelegate.window.rootViewController presentModalViewController:nc animated:true];
+        [vc release];
+        [nc release];
     }
 }
 
@@ -1501,10 +1499,16 @@ enum
     {
         if (index == 0)
         {
+            if ([_selectedFiles count] == 1)        return NSLocalizedString(@"Open", nil);
+            else if ([self canSendMail])            return NSLocalizedString(@"Mail", nil);
+            else if ([self canSaveToCameraRoll])    return NSLocalizedString(@"Save", nil);
+        }
+        else if (index == 1)
+        {
             if ([self canSendMail])    return NSLocalizedString(@"Mail", nil);
             else if ([self canSaveToCameraRoll]) return NSLocalizedString(@"Save", nil);
         }
-        else if (index == 1) return NSLocalizedString(@"Save", nil);
+        else if (index == 2) return NSLocalizedString(@"Save", nil);
     }
     else if(popoverContent == _popoverContentArchive)
     {
@@ -1571,8 +1575,21 @@ enum
     }
     else if(popoverContent == _popoverContentShare)
     {
-        if ([title isEqualToString:NSLocalizedString(@"Mail", nil)]) [self sendMail:_selectedFiles];
-        else if ([title isEqualToString:NSLocalizedString(@"Save", nil)]) 
+        if ([title isEqualToString:NSLocalizedString(@"Open", nil)])
+        {
+            if ([_selectedFiles count] != 1)
+            {
+                NSLog(@"FileVC: Couldn't open: selected files count != 1");
+                return;
+            }
+            
+            [self open:[_selectedFiles anyObject] cellRect:[toolBar rectForPopoverInView:self.view btn:ToolBarBtnShare]];
+        }
+        else if ([title isEqualToString:NSLocalizedString(@"Mail", nil)])
+        {
+            [self sendMail:_selectedFiles];
+        }
+        else if ([title isEqualToString:NSLocalizedString(@"Save", nil)])
         {
             if ([_selectedFiles count] != 1)
             {
@@ -1747,6 +1764,7 @@ enum
     
     int btnCount = 0;
    
+    if ([_selectedFiles count] == 1) btnCount ++;
     if ([self canSendMail]) btnCount ++;
     if ([self canSaveToCameraRoll]) btnCount ++;
     
@@ -1811,8 +1829,20 @@ enum
     }
     else if (actionSheet == _actionSheetShare)
     {
-        if ([title isEqualToString:NSLocalizedString(@"Mail", nil)]) [self sendMail:_selectedFiles];
-        else if ([title isEqualToString:NSLocalizedString(@"Save", nil)]) 
+        if ([title isEqualToString:NSLocalizedString(@"Open", nil)])
+        {
+            if ([_selectedFiles count] != 1)
+            {
+                NSLog(@"FileVC: Couldn't open: selected files count != 1");
+                return;
+            }
+            [self open:[_selectedFiles anyObject] cellRect:CGRectZero];
+        }
+        else if ([title isEqualToString:NSLocalizedString(@"Mail", nil)])
+        {
+            [self sendMail:_selectedFiles];
+        }
+        else if ([title isEqualToString:NSLocalizedString(@"Save", nil)])
         {
             if ([_selectedFiles count] != 1)
             {
@@ -1901,7 +1931,8 @@ enum
                                     destructiveButtonTitle:nil otherButtonTitles:nil];
     _actionSheetShare.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     
-    if ([self canSendMail]) [_actionSheetShare addButtonWithTitle:NSLocalizedString(@"Mail", nil)];
+    if ([_selectedFiles count] == 1)     [_actionSheetShare addButtonWithTitle:NSLocalizedString(@"Open", nil)];
+    if ([self canSendMail])         [_actionSheetShare addButtonWithTitle:NSLocalizedString(@"Mail", nil)];
     if ([self canSaveToCameraRoll]) [_actionSheetShare addButtonWithTitle:NSLocalizedString(@"Save", nil)];
     
     [_actionSheetShare addButtonWithTitle:NSLocalizedString(@"Cancel", nil)];
@@ -2287,12 +2318,12 @@ enum
     [toolBar setEnabled:[_selectedFiles count] > 0 && [self canWorkWithArchives] forBtn:ToolBarBtnArchive];
     [toolBar setEnabled:[_selectedFiles count] > 0 || (![[ClipboardManager sharedManager] isFree]) forBtn:ToolBarBtnCCP];
     
-    [toolBar setEnabled:[self canSaveToCameraRoll] || [self canSendMail] forBtn:ToolBarBtnShare];
+    [toolBar setEnabled:[self canSaveToCameraRoll] || [self canSendMail] || [_selectedFiles count] == 1 forBtn:ToolBarBtnShare];
 }
 
 - (void) enterForeground
 {
-    [toolBar setEnabled:[self canSaveToCameraRoll] || [self canSendMail] forBtn:ToolBarBtnShare];
+    [toolBar setEnabled:[self canSaveToCameraRoll] || [self canSendMail] || [_selectedFiles count] == 1 forBtn:ToolBarBtnShare];
 }
 
 - (void)textFieldDidChange:(UITextField *)sender
@@ -2338,6 +2369,12 @@ enum
 {
     FileObject * rar = [notification.userInfo objectForKey:FILE_KEY];
     [self unRar:rar];
+}
+
+- (void) handleRefresh:(UIRefreshControl *)sender
+{
+    [sender endRefreshing];
+    [self reloadFiles];
 }
 
 #pragma mark - "virtual" methods

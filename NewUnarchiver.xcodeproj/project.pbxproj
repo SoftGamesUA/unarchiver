@@ -474,7 +474,6 @@
 		2F9C9B4014F3A78B005FE13D /* MBPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C9B3914F3A78A005FE13D /* MBPopoverBackgroundView.m */; };
 		2F9C9B4214F3A78B005FE13D /* PopoverBgViewToolbarDark.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C9B3D14F3A78B005FE13D /* PopoverBgViewToolbarDark.m */; };
 		2F9C9B4314F3A78B005FE13D /* PopoverBgViewToolbarRed.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C9B3F14F3A78B005FE13D /* PopoverBgViewToolbarRed.m */; };
-		2FACC50D152F068B0035F376 /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FACC50C152F068B0035F376 /* HelpView.m */; };
 		2FB3D40E150F620B00C4377A /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB3D40D150F620B00C4377A /* QuickLook.framework */; };
 		2FCFA5EB163546AF000B9D37 /* BoxVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFA5E7163546AF000B9D37 /* BoxVC.m */; };
 		2FCFA5EC163546AF000B9D37 /* BoxVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFA5E7163546AF000B9D37 /* BoxVC.m */; };
@@ -524,6 +523,14 @@
 		2FE93A761647CA7700AD66FD /* XFolderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE93A751647CA7700AD66FD /* XFolderVC.m */; };
 		2FE93A771647CA7700AD66FD /* XFolderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE93A751647CA7700AD66FD /* XFolderVC.m */; };
 		2FE93A781647CA7700AD66FD /* XFolderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE93A751647CA7700AD66FD /* XFolderVC.m */; };
+		2FF4CD2B1678C1F8007CB95A /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4CD2A1678C1F8007CB95A /* ODRefreshControl.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		2FF4CD2D1678C2A2007CB95A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF4CD2C1678C2A2007CB95A /* QuartzCore.framework */; };
+		2FFF5CE91679E78800DF58B3 /* HelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF5CE81679E78800DF58B3 /* HelpVC.m */; };
+		2FFF5CF71679F35E00DF58B3 /* FileViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF5CF61679F35E00DF58B3 /* FileViewer.m */; };
+		2FFF5CFC1679F76400DF58B3 /* About us.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFF5CF91679F76400DF58B3 /* About us.pdf */; };
+		2FFF5CFD1679F76400DF58B3 /* FAQ.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFF5CFA1679F76400DF58B3 /* FAQ.pdf */; };
+		2FFF5CFE1679F76400DF58B3 /* What's new?.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFF5CFB1679F76400DF58B3 /* What's new?.pdf */; };
+		2FFF5D011679FD6200DF58B3 /* VideoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF5D001679FD6200DF58B3 /* VideoViewer.m */; };
 		A0AB393F1590B7EE00C68D26 /* NSDataBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AB39361590B7EE00C68D26 /* NSDataBase64.m */; };
 		A0AB39401590B7EE00C68D26 /* SKPluginTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AB39381590B7EE00C68D26 /* SKPluginTransaction.m */; };
 		A0AB39411590B7EE00C68D26 /* StoreKitBindingiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AB393A1590B7EE00C68D26 /* StoreKitBindingiOS.m */; };
@@ -552,7 +559,6 @@
 		A0E921E3156A6C6E00DB8341 /* ArchiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9BDD4E1510A701003824AF /* ArchiveVC.m */; };
 		A0E921E4156A6C6E00DB8341 /* DropboxVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5A87A51512076300700C48 /* DropboxVC.m */; };
 		A0E921E5156A6C6E00DB8341 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F976FE215220BCD00B1C988 /* Reachability.m */; };
-		A0E921E6156A6C6E00DB8341 /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FACC50C152F068B0035F376 /* HelpView.m */; };
 		A0E921E9156A6C6E00DB8341 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5A87871511FECC00700C48 /* Security.framework */; };
 		A0E921EA156A6C6E00DB8341 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5A87841511FEB200700C48 /* DropboxSDK.framework */; };
 		A0E921EB156A6C6E00DB8341 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9BD27214D40F6600C42822 /* UIKit.framework */; };
@@ -587,7 +593,6 @@
 		A0E92294156A714800DB8341 /* ArchiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9BDD4E1510A701003824AF /* ArchiveVC.m */; };
 		A0E92295156A714800DB8341 /* DropboxVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5A87A51512076300700C48 /* DropboxVC.m */; };
 		A0E92296156A714800DB8341 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F976FE215220BCD00B1C988 /* Reachability.m */; };
-		A0E92297156A714800DB8341 /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FACC50C152F068B0035F376 /* HelpView.m */; };
 		A0E9229A156A714800DB8341 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5A87871511FECC00700C48 /* Security.framework */; };
 		A0E9229B156A714800DB8341 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5A87841511FEB200700C48 /* DropboxSDK.framework */; };
 		A0E9229C156A714800DB8341 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9BD27214D40F6600C42822 /* UIKit.framework */; };
@@ -1099,8 +1104,6 @@
 		2F9C9B3E14F3A78B005FE13D /* PopoverBgViewToolbarRed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverBgViewToolbarRed.h; sourceTree = "<group>"; };
 		2F9C9B3F14F3A78B005FE13D /* PopoverBgViewToolbarRed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverBgViewToolbarRed.m; sourceTree = "<group>"; };
 		2F9C9B4414F3A816005FE13D /* PopoverBgViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverBgViews.h; sourceTree = "<group>"; };
-		2FACC50B152F068B0035F376 /* HelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpView.h; path = ../HelpView.h; sourceTree = "<group>"; };
-		2FACC50C152F068B0035F376 /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpView.m; path = ../HelpView.m; sourceTree = "<group>"; };
 		2FB3D40D150F620B00C4377A /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		2FCFA5E6163546AF000B9D37 /* BoxVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxVC.h; sourceTree = "<group>"; };
 		2FCFA5E7163546AF000B9D37 /* BoxVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxVC.m; sourceTree = "<group>"; };
@@ -1134,6 +1137,18 @@
 		2FD95BF31623011C009E808F /* ClipboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClipboardManager.m; path = ../ClipboardManager.m; sourceTree = "<group>"; };
 		2FE93A741647CA7700AD66FD /* XFolderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFolderVC.h; sourceTree = "<group>"; };
 		2FE93A751647CA7700AD66FD /* XFolderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFolderVC.m; sourceTree = "<group>"; };
+		2FF4CD291678C1F8007CB95A /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
+		2FF4CD2A1678C1F8007CB95A /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
+		2FF4CD2C1678C2A2007CB95A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2FFF5CE71679E78800DF58B3 /* HelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpVC.h; sourceTree = "<group>"; };
+		2FFF5CE81679E78800DF58B3 /* HelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpVC.m; sourceTree = "<group>"; };
+		2FFF5CF51679F35E00DF58B3 /* FileViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileViewer.h; sourceTree = "<group>"; };
+		2FFF5CF61679F35E00DF58B3 /* FileViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileViewer.m; sourceTree = "<group>"; };
+		2FFF5CF91679F76400DF58B3 /* About us.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "About us.pdf"; sourceTree = "<group>"; };
+		2FFF5CFA1679F76400DF58B3 /* FAQ.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FAQ.pdf; sourceTree = "<group>"; };
+		2FFF5CFB1679F76400DF58B3 /* What's new?.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "What's new?.pdf"; sourceTree = "<group>"; };
+		2FFF5CFF1679FD6200DF58B3 /* VideoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewer.h; sourceTree = "<group>"; };
+		2FFF5D001679FD6200DF58B3 /* VideoViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewer.m; sourceTree = "<group>"; };
 		A0162E171591393B0052BCF5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A0AB39351590B7EE00C68D26 /* NSDataBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataBase64.h; sourceTree = "<group>"; };
 		A0AB39361590B7EE00C68D26 /* NSDataBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataBase64.m; sourceTree = "<group>"; };
@@ -1177,6 +1192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FF4CD2D1678C2A2007CB95A /* QuartzCore.framework in Frameworks */,
 				2F1E203516661B7E00FFB0D3 /* MobileCoreServices.framework in Frameworks */,
 				2F55269115B4311E0013B024 /* AssetsLibrary.framework in Frameworks */,
 				A0AB39451590BA2A00C68D26 /* StoreKit.framework in Frameworks */,
@@ -2043,6 +2059,7 @@
 		2F9BD27114D40F6600C42822 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FF4CD2C1678C2A2007CB95A /* QuartzCore.framework */,
 				2F1E203416661B7E00FFB0D3 /* MobileCoreServices.framework */,
 				2F55269015B4311D0013B024 /* AssetsLibrary.framework */,
 				A0AB39441590BA2A00C68D26 /* StoreKit.framework */,
@@ -2061,6 +2078,7 @@
 		2F9BD27814D40F6600C42822 /* NewUnarchiver */ = {
 			isa = PBXGroup;
 			children = (
+				2FF4CD281678C1F8007CB95A /* ODRefreshControl */,
 				A0AB39341590B7EE00C68D26 /* StoreKit */,
 				2F976FE015220BCD00B1C988 /* Reachability */,
 				2F988A2914FCF99D0049D322 /* MBProgressHUD */,
@@ -2075,12 +2093,11 @@
 				2F13843D1643E20B00CF30FD /* Yandex Disk */,
 				2F0F35D41651260500F0464C /* Home */,
 				2F421177165D1163006C07E1 /* Google Drive */,
+				2FF6D15116776AA500C10BBD /* Help */,
 				2F959C9C150F579500F15BA7 /* PreviewVC.h */,
 				2F959C9D150F579500F15BA7 /* PreviewVC.m */,
 				2F9BDD4D1510A701003824AF /* ArchiveVC.h */,
 				2F9BDD4E1510A701003824AF /* ArchiveVC.m */,
-				2FACC50B152F068B0035F376 /* HelpView.h */,
-				2FACC50C152F068B0035F376 /* HelpView.m */,
 				2F153C1116494E3500351F35 /* QuickMessage.h */,
 				2F153C1216494E3600351F35 /* QuickMessage.m */,
 				2FD95BF21623011B009E808F /* ClipboardManager.h */,
@@ -2219,6 +2236,39 @@
 				2FE93A751647CA7700AD66FD /* XFolderVC.m */,
 			);
 			name = "Documents & Inbox";
+			sourceTree = "<group>";
+		};
+		2FF4CD281678C1F8007CB95A /* ODRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				2FF4CD291678C1F8007CB95A /* ODRefreshControl.h */,
+				2FF4CD2A1678C1F8007CB95A /* ODRefreshControl.m */,
+			);
+			path = ODRefreshControl;
+			sourceTree = "<group>";
+		};
+		2FF6D15116776AA500C10BBD /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				2FFF5CF81679F76400DF58B3 /* Help info */,
+				2FFF5CE71679E78800DF58B3 /* HelpVC.h */,
+				2FFF5CE81679E78800DF58B3 /* HelpVC.m */,
+				2FFF5CF51679F35E00DF58B3 /* FileViewer.h */,
+				2FFF5CF61679F35E00DF58B3 /* FileViewer.m */,
+				2FFF5CFF1679FD6200DF58B3 /* VideoViewer.h */,
+				2FFF5D001679FD6200DF58B3 /* VideoViewer.m */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
+		2FFF5CF81679F76400DF58B3 /* Help info */ = {
+			isa = PBXGroup;
+			children = (
+				2FFF5CF91679F76400DF58B3 /* About us.pdf */,
+				2FFF5CFA1679F76400DF58B3 /* FAQ.pdf */,
+				2FFF5CFB1679F76400DF58B3 /* What's new?.pdf */,
+			);
+			path = "Help info";
 			sourceTree = "<group>";
 		};
 		A0AB39341590B7EE00C68D26 /* StoreKit */ = {
@@ -2543,6 +2593,9 @@
 				2F2660F71669155A005CB48A /* previewBtnDropbox.png in Resources */,
 				2F2660F916691564005CB48A /* previewBtnCamera.png in Resources */,
 				2F2660FB1669156E005CB48A /* previewBtnBoxnet.png in Resources */,
+				2FFF5CFC1679F76400DF58B3 /* About us.pdf in Resources */,
+				2FFF5CFD1679F76400DF58B3 /* FAQ.pdf in Resources */,
+				2FFF5CFE1679F76400DF58B3 /* What's new?.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2696,7 +2749,6 @@
 				2F9BDD4F1510A701003824AF /* ArchiveVC.m in Sources */,
 				2F5A87A61512076400700C48 /* DropboxVC.m in Sources */,
 				2F976FE515220BCD00B1C988 /* Reachability.m in Sources */,
-				2FACC50D152F068B0035F376 /* HelpView.m in Sources */,
 				A0AB393F1590B7EE00C68D26 /* NSDataBase64.m in Sources */,
 				A0AB39401590B7EE00C68D26 /* SKPluginTransaction.m in Sources */,
 				A0AB39411590B7EE00C68D26 /* StoreKitBindingiOS.m in Sources */,
@@ -2822,6 +2874,10 @@
 				2F4222B4165D16B8006C07E1 /* GTLQueryDrive.m in Sources */,
 				2F4222B5165D16B8006C07E1 /* GTLServiceDrive.m in Sources */,
 				2F13D19F165E5D21004CC0EA /* FileObject.m in Sources */,
+				2FF4CD2B1678C1F8007CB95A /* ODRefreshControl.m in Sources */,
+				2FFF5CE91679E78800DF58B3 /* HelpVC.m in Sources */,
+				2FFF5CF71679F35E00DF58B3 /* FileViewer.m in Sources */,
+				2FFF5D011679FD6200DF58B3 /* VideoViewer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2850,7 +2906,6 @@
 				A0E921E3156A6C6E00DB8341 /* ArchiveVC.m in Sources */,
 				A0E921E4156A6C6E00DB8341 /* DropboxVC.m in Sources */,
 				A0E921E5156A6C6E00DB8341 /* Reachability.m in Sources */,
-				A0E921E6156A6C6E00DB8341 /* HelpView.m in Sources */,
 				2FCFA5EC163546AF000B9D37 /* BoxVC.m in Sources */,
 				2F24815F163695AC00531134 /* BoxBrowserTableViewController.m in Sources */,
 				2F248162163695AC00531134 /* BoxCommonUISetup.m in Sources */,
@@ -2932,7 +2987,6 @@
 				A0E92294156A714800DB8341 /* ArchiveVC.m in Sources */,
 				A0E92295156A714800DB8341 /* DropboxVC.m in Sources */,
 				A0E92296156A714800DB8341 /* Reachability.m in Sources */,
-				A0E92297156A714800DB8341 /* HelpView.m in Sources */,
 				2FCFA5ED163546AF000B9D37 /* BoxVC.m in Sources */,
 				2F248160163695AC00531134 /* BoxBrowserTableViewController.m in Sources */,
 				2F248163163695AC00531134 /* BoxCommonUISetup.m in Sources */,
