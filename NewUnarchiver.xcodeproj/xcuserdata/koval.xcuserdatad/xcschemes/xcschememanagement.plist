@@ -4,35 +4,55 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BoxUnarchiver.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>DropboxUnarchiver.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>GoogleUnarchiver.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>NewUnarchiver.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Unarchiver_Pad.xcscheme</key>
+		<key>YandexUnarchiver.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
-		</dict>
-		<key>Unarchiver_iPhone.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2F2B3CC016807C57003DD09A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2F2B3E3116807CA3003DD09A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2F2B3FA216807CB9003DD09A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2F2B411316807CCF003DD09A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2F9BD26D14D40F6600C42822</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A0E921C9156A6C6E00DB8341</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A0E9227A156A714800DB8341</key>
 		<dict>
 			<key>primary</key>
 			<true/>

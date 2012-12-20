@@ -8,11 +8,16 @@
 
 #import "AppDelegate.h"
 
+#import "config.h"
 #import "FolderVC.h"
 #import "HomeVC.h"
 #import "PopoverBgViews.h"
 
-#import <DropboxSDK/DropboxSDK.h>
+#ifdef DROPBOX_UNARCHIVER
+
+    #import <DropboxSDK/DropboxSDK.h>
+
+#endif
 
 @implementation AppDelegate
 
@@ -75,6 +80,9 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
 {
+    
+#ifdef DROPBOX_UNARCHIVER
+    
     if ([[DBSession sharedSession] handleOpenURL:url]) 
     {
         if ([[DBSession sharedSession] isLinked]) 
@@ -83,6 +91,8 @@
         }
         return true;
     }
+    
+#endif
     
     NSString * fullString = [url absoluteString];
     if ([fullString hasPrefix:@"yandex-6dbb1ccae708457db589fe888447ecc8"] )

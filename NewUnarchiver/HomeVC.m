@@ -6,39 +6,36 @@
 //  Copyright (c) 2012 SoftGames. All rights reserved.
 //
 
+#import "config.h"
+
 #import "HomeVC.h"
 #import "FolderVC.h"
-#import "DropboxVC.h"
-#import "BoxVC.h"
-#import "CameraVC.h"
-#import "YandexDiskVC.h"
-#import "GoogleDriveVC.h"
-#import "XFolderVC.h"
 
-#import "PTPasscodeViewController.h"
+#ifdef DROPBOX_UNARCHIVER
+    #import "DropboxVC.h"
+#endif
 
-#define IDpaymant @"unarchiverdropbox"
+#ifdef BOX_UNARCHIVER
+    #import "BoxVC.h"
+#endif
 
-enum Sec0TableRows
-{
-    FilesRow        = 0,
-    XFilesRow       = 1,
-    InboxRow        = 2,
-    DropboxRow      = 3,
-    BoxnetRow       = 4,
-    YandexRow       = 5,
-    GoogleRow       = 6,
-    FTPRow          = -1,
-    Sec0RowCount    = 7,
-};
+#ifdef CAMERA_UNARCHIVER
+    #import "CameraVC.h"
+#endif
 
-enum Sec1TableRows
-{
-    CameraRow       = 0,
-    MusicRow        = -1,
-    VideoRow        = -1,
-    Sec1RowCount    = 1,
-};
+#ifdef YANDEX_UNARCHIVER
+    #import "YandexDiskVC.h"
+#endif
+
+#ifdef GOOGLE_UNARCHIVER
+    #import "GoogleDriveVC.h"
+#endif
+
+#ifdef XFOLDER_UNARCHIVER
+    #import "PTPasscodeViewController.h"
+#endif
+
+//#define IDpaymant @"unarchiverdropbox"
 
 @interface HomeVC()
 @property (nonatomic, retain) ModalView * purchaseDropboxModalView;
@@ -147,8 +144,8 @@ enum Sec1TableRows
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) return Sec0RowCount;
-    else if (section == 1) return Sec1RowCount;
+    if (section == 0) return HOME_SEC_0_ROW_COUNT;
+    else if (section == 1) return HOME_SEC_1_ROW_COUNT;
     return 0;
 }
 
@@ -174,83 +171,97 @@ enum Sec1TableRows
         cell.textLabel.highlightedTextColor = cell.textLabel.textColor;
     }
         
-    UIImage *icon, *iconPush;
+    UIImage *icon;
     
     if (indexPath.section == 0)
     {
-        if (indexPath.row == FilesRow) 
+
+#ifdef DOCUMENTS_UNARCHIVER
+
+        if (indexPath.row == DOCUMENTS_UNARCHIVER)
         {
             cell.textLabel.text = NSLocalizedString(@"My Files", nil);
             icon = [UIImage imageNamed:@"folderNavBarIcon"];
-            iconPush = [UIImage imageNamed:@"folderIconPush"];
         }
-        if (indexPath.row == XFilesRow)
+        
+#endif
+        
+#ifdef XFOLDER_UNARCHIVER
+        
+        if (indexPath.row == XFOLDER_UNARCHIVER)
         {
             cell.textLabel.text = NSLocalizedString(@"XFolder", nil);
             icon = [UIImage imageNamed:@"folderNavBarIcon"];
-            iconPush = [UIImage imageNamed:@"folderIconPush"];
         }
-        else if (indexPath.row == InboxRow)
+
+#endif
+        
+#ifdef INBOX_UNARCHIVER
+        
+        if (indexPath.row == INBOX_UNARCHIVER)
         {
             cell.textLabel.text = NSLocalizedString(@"Inbox", nil);
             icon = [UIImage imageNamed:@"folderNavBarIcon"];
-            iconPush = [UIImage imageNamed:@"folderIcon"];
         }
-        else if (indexPath.row == DropboxRow) 
+
+#endif
+        
+#ifdef DROPBOX_UNARCHIVER
+        
+        if (indexPath.row == DROPBOX_UNARCHIVER)
         {
             cell.textLabel.text = NSLocalizedString(@"Dropbox", nil);
             icon = [UIImage imageNamed:@"dropboxNavBarIcon"];
-            iconPush = [UIImage imageNamed:@"dropboxIconPush"];
         }
-        else if (indexPath.row == BoxnetRow) 
+        
+#endif
+
+#ifdef BOX_UNARCHIVER
+        
+        if (indexPath.row == BOX_UNARCHIVER)
         {
             cell.textLabel.text = NSLocalizedString(@"Box", nil);
             icon = [UIImage imageNamed:@"boxnetNavBarIcon"];
-            iconPush = [UIImage imageNamed:@"boxnetIconPush"];
         }
-        else if (indexPath.row == YandexRow)
+#endif
+
+#ifdef YANDEX_UNARCHIVER
+        
+        if (indexPath.row == YANDEX_UNARCHIVER)
         {
             cell.textLabel.text = NSLocalizedString(@"Yandex Disk", nil);
             icon = [UIImage imageNamed:@"yandexNavBarIcon"];
-            iconPush = [UIImage imageNamed:@"yandexIconPush"];
         }
-        else if (indexPath.row == GoogleRow)
+        
+#endif
+        
+#ifdef GOOGLE_UNARCHIVER
+        
+        if (indexPath.row == GOOGLE_UNARCHIVER)
         {
             cell.textLabel.text = NSLocalizedString(@"Google Drive", nil);
             icon = [UIImage imageNamed:@"googleNavBarIcon"];
-            iconPush = [UIImage imageNamed:@"googleIconPush"];
         }
-        else if (indexPath.row == FTPRow)
-        {
-            cell.textLabel.text = NSLocalizedString(@"My FTP", nil);
-            icon = [UIImage imageNamed:@"folderNavBarIcon"];
-            iconPush = [UIImage imageNamed:@"folderIcon"];
-        }
+        
+#endif
+        
     }
     else if (indexPath.section == 1)
     {
-        if (indexPath.row == CameraRow) 
+
+#ifdef CAMERA_UNARCHIVER
+        
+        if (indexPath.row == CAMERA_UNARCHIVER) 
         {
             cell.textLabel.text = NSLocalizedString(@"Camera Roll", nil);
             icon = [UIImage imageNamed:@"cameraNavBarIcon"];
-            iconPush = [UIImage imageNamed:@"photoIconPush"];
         }
-        else if (indexPath.row == MusicRow)
-        {
-            cell.textLabel.text = NSLocalizedString(@"Music", nil);
-            icon = [UIImage imageNamed:@"photoIcon"];
-            iconPush = [UIImage imageNamed:@"photoIconPush"];
-        }
-        else if (indexPath.row == VideoRow) 
-        {
-            cell.textLabel.text = NSLocalizedString(@"Video", nil);
-            icon = [UIImage imageNamed:@"photoIcon"];
-            iconPush = [UIImage imageNamed:@"photoIconPush"];
-        }
+
+#endif
+    
     }
     
     cell.imageView.image = icon;
-    //cell.imageView.highlightedImage = iconPush;
     
     UIImageView *accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"folderAccessoryBtn"]];
     cell.accessoryView = accessoryView;
@@ -263,7 +274,10 @@ enum Sec1TableRows
 {
     if (indexPath.section == 0)
     {
-        if (indexPath.row == FilesRow)
+        
+#ifdef DOCUMENTS_UNARCHIVER
+        
+        if (indexPath.row == DOCUMENTS_UNARCHIVER)
         {
             FolderVC *vc = [[FolderVC alloc] init];
             vc.isMaster = self.isMaster;
@@ -271,7 +285,12 @@ enum Sec1TableRows
             [self.navigationController pushViewController:vc animated:true];
             [vc release];
         }
-        if (indexPath.row == XFilesRow)
+
+#endif
+
+#ifdef XFOLDER_UNARCHIVER
+
+        if (indexPath.row == XFOLDER_UNARCHIVER)
         {
             PTPasscodeViewController * vc = [[PTPasscodeViewController alloc] initWithDelegate:self];
             vc.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -287,7 +306,12 @@ enum Sec1TableRows
             }
             [vc release];
         }
-        else if (indexPath.row == InboxRow)
+        
+#endif
+        
+#ifdef INBOX_UNARCHIVER
+        
+        if (indexPath.row == INBOX_UNARCHIVER)
         {
             FolderVC *vc = [[FolderVC alloc] init];
             vc.isMaster = self.isMaster;
@@ -295,7 +319,12 @@ enum Sec1TableRows
             [self.navigationController pushViewController:vc animated:true];
             [vc release];
         }
-        else if (indexPath.row == DropboxRow) 
+        
+#endif
+       
+#ifdef DROPBOX_UNARCHIVER
+        
+        if (indexPath.row == DROPBOX_UNARCHIVER)
         {
             //if ([self isDropboxPurchased])
             {
@@ -311,7 +340,12 @@ enum Sec1TableRows
                 //[self.purchaseDropboxModalView show];
             }
         }
-        else if (indexPath.row == BoxnetRow) 
+
+#endif
+
+#ifdef BOX_UNARCHIVER
+    
+        if (indexPath.row == BOX_UNARCHIVER)
         {
             BoxVC *vc = [[BoxVC alloc] init];
             vc.isMaster = self.isMaster;
@@ -319,7 +353,12 @@ enum Sec1TableRows
             [self.navigationController pushViewController:vc animated:true];
             [vc release];
         }
-        else if (indexPath.row == YandexRow)
+
+#endif
+
+#ifdef YANDEX_UNARCHIVER
+    
+        if (indexPath.row == YANDEX_UNARCHIVER)
         {
             YandexDiskVC *vc = [[YandexDiskVC alloc] init];
             vc.isMaster = self.isMaster;
@@ -328,7 +367,12 @@ enum Sec1TableRows
             [self.navigationController pushViewController:vc animated:true];
             [vc release];
         }
-        else if (indexPath.row == GoogleRow)
+
+#endif
+
+#ifdef GOOGLE_UNARCHIVER
+    
+        if (indexPath.row == GOOGLE_UNARCHIVER)
         {
             GoogleDriveVC *vc = [[GoogleDriveVC alloc] init];
             vc.isMaster = self.isMaster;
@@ -336,28 +380,25 @@ enum Sec1TableRows
               [self.navigationController pushViewController:vc animated:true];
             [vc release];
         }
-        else if (indexPath.row == FTPRow)
-        {
-
-        }
+    
+#endif
+    
     }
     else if (indexPath.section == 1)
     {
-        if (indexPath.row == CameraRow) 
+
+#ifdef CAMERA_UNARCHIVER
+        
+        if (indexPath.row == CAMERA_UNARCHIVER) 
         {
             CameraVC *vc = [[CameraVC alloc] init];
             vc.isMaster = self.isMaster;
             [self.navigationController pushViewController:vc animated:true];
             [vc release];
         }
-        else if (indexPath.row == MusicRow)
-        {
-
-        }
-        else if (indexPath.row == VideoRow) 
-        {
-
-        }
+        
+#endif
+        
     }
 }
 
@@ -456,6 +497,8 @@ enum Sec1TableRows
 
 #pragma mark - PTPasscodeViewControllerDelegate
 
+#ifdef XFOLDER_UNARCHIVER
+
 - (void)didShowPasscodePanel:(PTPasscodeViewController *)passcodeViewController panelView:(UIView*)panelView
 {
     [passcodeViewController setTitle:@"Set Passcode"];
@@ -529,12 +572,14 @@ enum Sec1TableRows
 
 - (void) goToXFolder
 {
-    XFolderVC *vc = [[XFolderVC alloc] init];
+    FolderVC *vc = [[FolderVC alloc] init];
     vc.isMaster = self.isMaster;
     vc.rootFolder = appDelegate.xFolder;
     [self.navigationController pushViewController:vc animated:true];
     [vc release];
 }
+
+#endif
 
 #pragma mark -
 
