@@ -12,11 +12,29 @@
 #import "FileViewer.h"
 #import "VideoViewer.h"
 
+#import "PopoverBgViewToolbarDark.h"
+
 @interface HelpVC ()
+
+@property (nonatomic, retain) UIPopoverController * popoverControllerFeedback;
+@property (nonatomic, retain) UIActionSheet * actionSheetFeedback;
 
 @end
 
 @implementation HelpVC
+
+- (void) like
+{
+    //NSString * URL;
+    //[[UIApplication sharedApplication] openURL: URL];
+}
+
+- (void) otherApps
+{
+    
+}
+
+#pragma mark - init
 
 - (void) initTable
 {
@@ -72,14 +90,6 @@
     [self customizeInterface];
 }
 
-- (void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [_tableView reloadData];
-}
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -96,6 +106,11 @@
     {
         [self.parentViewController dismissModalViewControllerAnimated:YES];
     }
+}
+
+- (void) clickedNavBarIcon:(CGRect)iconFrame
+{
+    [self backButtonClick];
 }
 
 #pragma mark - Table view data source
@@ -153,6 +168,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    
     switch (indexPath.section)
     {
         case 0:
@@ -184,6 +201,20 @@
             [vc release];
             break;
         }
+        case 3:
+        {
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            {
+                CGRect frame = [_tableView rectForRowAtIndexPath:indexPath];
+                frame.origin.y += frame.size.height / 2;
+                [self.popoverControllerFeedback presentPopoverFromRect:frame inView:_tableView permittedArrowDirections:UIPopoverArrowDirectionDown animated:true];
+            }
+            else
+            {
+                [self.actionSheetFeedback showInView:self.view];  
+            }
+            break;
+        }
         case 4:
         {
             FileViewer * vc = [[FileViewer alloc] init];
@@ -194,9 +225,163 @@
             [vc release];
             break;
         }
+        case 5:
+        {
+            [self otherApps];
+        }
+            
         default:
             break;
     }
+}
+
+#pragma mark - popover
+
+- (UIPopoverController *)popoverControllerFeedback
+{
+    if (!_popoverControllerFeedback)
+    {
+        _popoverContentFeedback = [[PopoverContent alloc] initWithStyle:PopoverContentStyleVertical];
+        _popoverContentFeedback.delegate = self;
+        [_popoverContentFeedback setBtnSize:CGSizeMake(150, 50)];
+        [_popoverContentFeedback setBtnBackgroundImage:[UIImage imageNamed:@"NavBarPopoverBtn"]];
+        [_popoverContentFeedback setBtnBackgroundImagePush:[UIImage imageNamed:@"NavBarPopoverBtnPush"]];
+        [_popoverContentFeedback setTextColor:[UIColor whiteColor]];
+        
+        _popoverControllerFeedback = [[UIPopoverController alloc] initWithContentViewController:_popoverContentFeedback];
+        _popoverControllerFeedback.popoverBackgroundViewClass = [PopoverBgViewToolbarDark class];
+    }
+    
+    int btnCount = 1;
+    
+    if ([MFMailComposeViewController canSendMail]) btnCount += 2;
+    
+    [_popoverContentFeedback setBtnCount:btnCount];
+    [_popoverContentFeedback setup];
+    [_popoverControllerFeedback setPopoverContentSize:_popoverContentFeedback.view.frame.size animated:YES];
+    return _popoverControllerFeedback;
+}
+
+- (NSString *) textForBtnAtIndex:(int)index popoverContent:(PopoverContent *)popoverContent
+{
+    if (popoverContent.btnCount == 1)
+    {
+        return NSLocalizedString(@"I like Unarchiver", nil);
+    }
+    else
+    {
+        if (index == 0)
+        {
+            return NSLocalizedString(@"Report a problem", nil);
+        }
+        else if (index == 1)
+        {
+            return NSLocalizedString(@"Suggest a feature", nil);
+        }
+        else if (index == 2)
+        {
+            return NSLocalizedString(@"I like Unarchiver", nil);
+        }
+    }
+    
+    return nil;
+}
+
+- (void) clickedBtnAtIndex:(int)index popoverContent:(PopoverContent *)popoverContent
+{
+    if (popoverContent.btnCount == 1)
+    {
+        [self like];
+    }
+    else
+    {
+        if (index == 0)
+        {
+            [self sendMailWithTitle:NSLocalizedString(@"Report a problem", nil)];
+        }
+        else if (index == 1)
+        {
+            [self sendMailWithTitle:NSLocalizedString(@"Suggest a feature", nil)];
+        }
+        else if (index == 2)
+        {
+            [self like];
+        }
+    }
+
+    [_popoverControllerFeedback dismissPopoverAnimated:true];
+}
+
+#pragma mark - action sheet
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.numberOfButtons == 1)
+    {
+        [self like];
+    }
+    else
+    {
+        if (buttonIndex == 0)
+        {
+            [self sendMailWithTitle:NSLocalizedString(@"Report a problem", nil)];
+        }
+        else if (buttonIndex == 1)
+        {
+            [self sendMailWithTitle:NSLocalizedString(@"Suggest a feature", nil)];
+        }
+        else if (buttonIndex == 2)
+        {
+            [self like];
+        }
+    }
+
+}
+
+
+- (UIActionSheet *) actionSheetFeedback
+{
+    [_actionSheetFeedback release];
+    
+    _actionSheetFeedback = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil
+                                      destructiveButtonTitle:nil otherButtonTitles:nil];
+    _actionSheetFeedback.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    
+    if ([MFMailComposeViewController canSendMail])
+    {
+        [_actionSheetFeedback addButtonWithTitle:NSLocalizedString(@"Report a problem", nil)];
+        [_actionSheetFeedback addButtonWithTitle:NSLocalizedString(@"Suggest a feature", nil)];
+    }
+    
+    [_actionSheetFeedback addButtonWithTitle:NSLocalizedString(@"I like Unarchiver", nil)];
+    [_actionSheetFeedback addButtonWithTitle:NSLocalizedString(@"Cancel", nil)];
+    
+    _actionSheetFeedback.cancelButtonIndex = _actionSheetFeedback.numberOfButtons - 1;
+    
+    return _actionSheetFeedback;
+}
+
+#pragma mark - mail
+
+-(void)sendMailWithTitle:(NSString *) title
+{
+    if (![MFMailComposeViewController canSendMail])
+    {
+        return;
+    }
+    
+    MFMailComposeViewController * mailViewController = [[MFMailComposeViewController alloc] init];
+    [mailViewController setSubject:title];
+    [mailViewController setToRecipients:@[@"mail@softgames.biz"]];
+    mailViewController.mailComposeDelegate = self;
+    
+    [self presentModalViewController:mailViewController animated:YES];
+    [mailViewController release];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 @end

@@ -1439,7 +1439,6 @@ enum
     {
         HelpVC * vc = [[HelpVC alloc] init];
         UINavigationController * nc = [[UINavigationController alloc] initWithRootViewController:vc];
-        //nc.modalPresentationStyle = UIModalPresentationFormSheet;
         [appDelegate.window.rootViewController presentModalViewController:nc animated:true];
         [vc release];
         [nc release];

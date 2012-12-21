@@ -45,13 +45,14 @@
 
     [self customizeInterface];
     
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"tableBG"]]];
     
     NSString *embedHTML = @"<html><head></head>\
     <body style=\"margin:0\">\
     <embed id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \
     width=\"%0.0f\" height=\"%0.0f\"></embed>\
     </body></html>";
-    NSString * html = [NSString stringWithFormat:embedHTML, _URLString, 250.0, 250.0];
+    NSString * html = [NSString stringWithFormat:embedHTML, _URLString, 200.0, 200.0];
     
     videoView = [[UIWebView alloc] init];
     videoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
@@ -63,7 +64,7 @@
 {
     [super viewWillAppear:animated];
     
-    videoView.frame = CGRectMake(self.view.frame.size.width / 2 - 125, self.view.frame.size.height / 2 - 125, 250, 250);
+    videoView.frame = CGRectMake(self.view.frame.size.width / 2 - 100, self.view.frame.size.height / 2 - 100 + toolBarHeight / 2, 200, 200);
 }
 
 - (void) dealloc

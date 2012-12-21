@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "BasicVC.h"
+#import "PopoverContent.h"
 
-@interface HelpVC : BasicVC <UITableViewDataSource, UITableViewDelegate>
+#import "MessageUI/MessageUI.h"
+#import "MessageUI/MFMailComposeViewController.h"
+
+@interface HelpVC : BasicVC <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, PopoverContentDelegate, UIActionSheetDelegate>
 {
     UITableView * _tableView;
+    PopoverContent * _popoverContentFeedback;
 }
 @end

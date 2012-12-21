@@ -103,13 +103,6 @@
     //[[StoreKitBindingiOS sharedManager] requestProductData:IDpaymant];
 }
 
-- (void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [_tableView reloadData];
-}
-
 - (void)viewDidUnload
 {
     [self clean];
@@ -272,6 +265,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    
     if (indexPath.section == 0)
     {
         
@@ -567,7 +562,6 @@
 - (void)didCancel:(PTPasscodeViewController *)passcodeViewController
 {
     [appDelegate.window.rootViewController dismissModalViewControllerAnimated:true];
-    [_tableView reloadData];
 }
 
 - (void) goToXFolder
