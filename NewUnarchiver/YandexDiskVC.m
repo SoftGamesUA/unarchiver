@@ -26,6 +26,12 @@ static NSString * yandexToken;
 
 @implementation YandexDiskVC
 
++ (void) logOut
+{
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:YANDEX_TOKEN_KEY];
+    yandexToken = nil;
+}
+
 - (void) noAuthorization
 {
     [appDelegate showQuickMesage:NSLocalizedString(@"Need authorization", nil)];
@@ -55,6 +61,7 @@ static NSString * yandexToken;
 
 - (void) finishGettingToken
 {
+    [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"link_yandex"];
     yandexToken = [[NSUserDefaults standardUserDefaults] valueForKey:YANDEX_TOKEN_KEY];
     [super reloadFiles];
 }

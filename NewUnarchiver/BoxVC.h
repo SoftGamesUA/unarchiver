@@ -15,4 +15,7 @@
     
     Reachability * _internetConnection;
 }
+
++ (void) logOut;
+
 @end

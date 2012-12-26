@@ -24,7 +24,8 @@
     Unarchiver * _unarchiver;
     
     UITableView * _tableView;
-    UIView * _emptyFolderView, * _addFilesBtnsView;
+    UIView * _addFilesBtnsView;
+    UIScrollView * _emptyFolderView;
     UILabel * _freeSpaceLabel, * _emptyFolderLabel;
     
     NSMutableSet * _selectedFiles;

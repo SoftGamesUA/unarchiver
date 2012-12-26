@@ -159,8 +159,14 @@ enum
 {
     [_emptyFolderView removeFromSuperview];
     [_emptyFolderView release];
-    _emptyFolderView = [[UIView alloc] initWithFrame:_tableView.frame];
+    _emptyFolderView = [[UIScrollView alloc] initWithFrame:_tableView.frame];
     _emptyFolderView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    /*_emptyFolderView.contentInset = UIEdgeInsetsMake(1, 0, 1, 0);
+    _emptyFolderView.contentSize = _emptyFolderView.frame.size;
+    ODRefreshControl * refreshControl = [[ODRefreshControl alloc] initInScrollView:_emptyFolderView];
+    [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [refreshControl release];*/
     
     UIImage * img = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"folderBgImage" ofType:@"png"]];
     UIImageView *folderImageView = [[UIImageView alloc] initWithImage:img];

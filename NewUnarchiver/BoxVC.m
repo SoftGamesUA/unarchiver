@@ -38,6 +38,11 @@ typedef void(^BoxDeleteCompletionHandler)();
 
 @implementation BoxVC
 
++ (void) logOut
+{
+    [BoxLoginViewController logoutCurrentUser];
+}
+
 - (void) noAuthorization
 {
     [appDelegate showQuickMesage:NSLocalizedString(@"Need authorization", nil)];
@@ -77,6 +82,7 @@ typedef void(^BoxDeleteCompletionHandler)();
     if (result == LoginSuccess)
     {
         [super reloadFiles];
+        [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"link_box"];
     }
 }
 

@@ -14,9 +14,20 @@
 #import "PopoverBgViews.h"
 
 #ifdef DROPBOX_UNARCHIVER
-
+    #import "DropboxVC.h"
     #import <DropboxSDK/DropboxSDK.h>
+#endif
 
+#ifdef BOX_UNARCHIVER
+    #import "BoxVC.h"
+#endif
+
+#ifdef YANDEX_UNARCHIVER
+    #import "YandexDiskVC.h"
+#endif
+
+#ifdef GOOGLE_UNARCHIVER
+    #import "GoogleDriveVC.h"
 #endif
 
 @implementation AppDelegate
@@ -30,6 +41,7 @@
 
     [_progressHUD release];
     [_quickMessage release];
+    [_previousDefaults release];
     
     [super dealloc];
 }
@@ -40,6 +52,9 @@
     [self createCacheIfNeeded];
     [self createXFilesIfNeeded];
  
+    [self logOutIfNeeded:false];
+    _previousDefaults = [[NSMutableDictionary alloc] init];
+    
     _progressHUD = [[MBProgressHUD alloc] initWithWindow:_window];
     [_window addSubview:_progressHUD];
     
@@ -134,17 +149,13 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-     If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-     */
+    [_previousDefaults removeAllObjects];
+    [_previousDefaults addEntriesFromDictionary:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    /*
-     Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-     */
+    [self logOutIfNeeded:true];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -161,6 +172,95 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+#pragma mark - log out
+
+- (void) logOutIfNeeded:(bool)popViewController
+{
+#ifdef DROPBOX_UNARCHIVER
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"link_dropbox"])
+    {
+        [DropboxVC logOut];
+        
+        if (popViewController && [[_previousDefaults objectForKey:@"link_dropbox"] boolValue])
+        {
+            if ([_masterNC.topViewController isKindOfClass:DropboxVC.class])
+            {
+                [_masterNC performSelector:@selector(popViewControllerAnimated:) withObject:[NSNumber numberWithBool:true] afterDelay:1];
+            }
+            if ([_detailNC.topViewController isKindOfClass:DropboxVC.class])
+            {
+                [_detailNC performSelector:@selector(popViewControllerAnimated:) withObject:[NSNumber numberWithBool:true] afterDelay:1];
+            }
+        }
+    }
+    
+#endif
+    
+#ifdef BOX_UNARCHIVER
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"link_box"])
+    {
+        [BoxVC logOut];
+        
+        if (popViewController && [[_previousDefaults objectForKey:@"link_box"] boolValue])
+        {
+            if ([_masterNC.topViewController isKindOfClass:BoxVC.class])
+            {
+                [_masterNC performSelector:@selector(popViewControllerAnimated:) withObject:[NSNumber numberWithBool:true] afterDelay:1];
+            }
+            if ([_detailNC.topViewController isKindOfClass:BoxVC.class])
+            {
+                [_detailNC performSelector:@selector(popViewControllerAnimated:) withObject:[NSNumber numberWithBool:true] afterDelay:1];
+            }
+        }
+    }
+    
+#endif
+    
+#ifdef YANDEX_UNARCHIVER
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"link_yandex"])
+    {
+        [YandexDiskVC logOut];
+        
+        if (popViewController && [[_previousDefaults objectForKey:@"link_yandex"] boolValue])
+        {
+            if ([_masterNC.topViewController isKindOfClass:YandexDiskVC.class])
+            {
+                [_masterNC performSelector:@selector(popViewControllerAnimated:) withObject:[NSNumber numberWithBool:true] afterDelay:1];
+            }
+            if ([_detailNC.topViewController isKindOfClass:YandexDiskVC.class])
+            {
+                [_detailNC performSelector:@selector(popViewControllerAnimated:) withObject:[NSNumber numberWithBool:true] afterDelay:1];
+            }
+        }
+    }
+    
+#endif
+    
+#ifdef GOOGLE_UNARCHIVER
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"link_google"])
+    {
+        [GoogleDriveVC logOut];
+        
+        if (popViewController && [[_previousDefaults objectForKey:@"link_google"] boolValue])
+        {
+            if ([_masterNC.topViewController isKindOfClass:GoogleDriveVC.class])
+            {
+                [_masterNC performSelector:@selector(popViewControllerAnimated:) withObject:[NSNumber numberWithBool:true] afterDelay:1];
+            }
+            if ([_detailNC.topViewController isKindOfClass:GoogleDriveVC.class])
+            {
+                [_detailNC performSelector:@selector(popViewControllerAnimated:) withObject:[NSNumber numberWithBool:true] afterDelay:1];
+            }
+        }
+    }
+    
+#endif
 }
 
 #pragma mark -

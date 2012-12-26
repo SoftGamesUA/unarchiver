@@ -30,6 +30,16 @@ typedef void (^LoadFileToCacheBlock)(NSString *);
 
 @implementation GoogleDriveVC
 
++ (void) logOut
+{
+    GTMOAuth2Authentication * auth = [GTMOAuth2ViewControllerTouch authForGoogleFromKeychainForName:kKeychainItemName
+                                                                                           clientID:kClientId
+                                                                                       clientSecret:kClientSecret];
+    [GTMOAuth2ViewControllerTouch revokeTokenForGoogleAuthentication:auth];
+    [GTMOAuth2ViewControllerTouch removeAuthFromKeychainForName:kKeychainItemName];
+    googleDriveService.authorizer = nil;
+}
+
 - (void) noAuthorization
 {
     [appDelegate showQuickMesage:NSLocalizedString(@"Need authorization", nil)];
@@ -94,7 +104,7 @@ typedef void (^LoadFileToCacheBlock)(NSString *);
 {
     [[self driveService] setAuthorizer:auth];
     _isAuthorized = true;
-    
+    [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"link_google"];
     [super reloadFiles];
 }
 

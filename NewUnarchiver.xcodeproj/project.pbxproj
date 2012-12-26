@@ -1188,6 +1188,11 @@
 		2FD0E1BF14FE326F00A8C65A /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD0E1BE14FE326F00A8C65A /* libz.1.dylib */; };
 		2FF4CD2B1678C1F8007CB95A /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4CD2A1678C1F8007CB95A /* ODRefreshControl.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2FF4CD2D1678C2A2007CB95A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF4CD2C1678C2A2007CB95A /* QuartzCore.framework */; };
+		2FF748AB1689BC8C00860AC2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2FF7489E1689BC7500860AC2 /* Settings.bundle */; };
+		2FF748AC1689BC9300860AC2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2FF748A11689BC7500860AC2 /* Settings.bundle */; };
+		2FF748AD1689BC9A00860AC2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2FF748A41689BC7500860AC2 /* Settings.bundle */; };
+		2FF748AE1689BCA100860AC2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2FF748A71689BC7500860AC2 /* Settings.bundle */; };
+		2FF748AF1689BCA800860AC2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2FF748AA1689BC7500860AC2 /* Settings.bundle */; };
 		2FFD30851681C807000EA29C /* ClipboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD30841681C807000EA29C /* ClipboardManager.m */; };
 		2FFD30861681C807000EA29C /* ClipboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD30841681C807000EA29C /* ClipboardManager.m */; };
 		2FFD30871681C807000EA29C /* ClipboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD30841681C807000EA29C /* ClipboardManager.m */; };
@@ -1708,6 +1713,11 @@
 		2FF4CD291678C1F8007CB95A /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		2FF4CD2A1678C1F8007CB95A /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 		2FF4CD2C1678C2A2007CB95A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2FF7489E1689BC7500860AC2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2FF748A11689BC7500860AC2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2FF748A41689BC7500860AC2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2FF748A71689BC7500860AC2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2FF748AA1689BC7500860AC2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2FFD30831681C807000EA29C /* ClipboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipboardManager.h; sourceTree = "<group>"; };
 		2FFD30841681C807000EA29C /* ClipboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipboardManager.m; sourceTree = "<group>"; };
 		2FFF5CE71679E78800DF58B3 /* HelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpVC.h; sourceTree = "<group>"; };
@@ -2711,6 +2721,7 @@
 		2F9BD27914D40F6600C42822 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2FF7489B1689BC7500860AC2 /* settings */,
 				2F9BD27A14D40F6600C42822 /* NewUnarchiver-Info.plist */,
 				2F9BD27B14D40F6600C42822 /* InfoPlist.strings */,
 				A0BD62F41538691A00FD8487 /* Localizable.strings */,
@@ -2853,6 +2864,59 @@
 				2FFF5D001679FD6200DF58B3 /* VideoViewer.m */,
 			);
 			name = Help;
+			sourceTree = "<group>";
+		};
+		2FF7489B1689BC7500860AC2 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				2FF7489C1689BC7500860AC2 /* Box */,
+				2FF7489F1689BC7500860AC2 /* Dropbox */,
+				2FF748A21689BC7500860AC2 /* Full */,
+				2FF748A51689BC7500860AC2 /* Google */,
+				2FF748A81689BC7500860AC2 /* Yandex */,
+			);
+			name = settings;
+			path = config;
+			sourceTree = SOURCE_ROOT;
+		};
+		2FF7489C1689BC7500860AC2 /* Box */ = {
+			isa = PBXGroup;
+			children = (
+				2FF7489E1689BC7500860AC2 /* Settings.bundle */,
+			);
+			path = Box;
+			sourceTree = "<group>";
+		};
+		2FF7489F1689BC7500860AC2 /* Dropbox */ = {
+			isa = PBXGroup;
+			children = (
+				2FF748A11689BC7500860AC2 /* Settings.bundle */,
+			);
+			path = Dropbox;
+			sourceTree = "<group>";
+		};
+		2FF748A21689BC7500860AC2 /* Full */ = {
+			isa = PBXGroup;
+			children = (
+				2FF748A41689BC7500860AC2 /* Settings.bundle */,
+			);
+			path = Full;
+			sourceTree = "<group>";
+		};
+		2FF748A51689BC7500860AC2 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				2FF748A71689BC7500860AC2 /* Settings.bundle */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		2FF748A81689BC7500860AC2 /* Yandex */ = {
+			isa = PBXGroup;
+			children = (
+				2FF748AA1689BC7500860AC2 /* Settings.bundle */,
+			);
+			path = Yandex;
 			sourceTree = "<group>";
 		};
 		2FFF5CF81679F76400DF58B3 /* Help info */ = {
@@ -3161,6 +3225,7 @@
 				2F2B3E2816807C57003DD09A /* About us.pdf in Resources */,
 				2F2B3E2916807C57003DD09A /* FAQ.pdf in Resources */,
 				2F2B3E2A16807C57003DD09A /* What's new?.pdf in Resources */,
+				2FF748AC1689BC9300860AC2 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3308,6 +3373,7 @@
 				2F2B3F9916807CA3003DD09A /* About us.pdf in Resources */,
 				2F2B3F9A16807CA3003DD09A /* FAQ.pdf in Resources */,
 				2F2B3F9B16807CA3003DD09A /* What's new?.pdf in Resources */,
+				2FF748AB1689BC8C00860AC2 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3446,6 +3512,7 @@
 				2F2B410A16807CB9003DD09A /* About us.pdf in Resources */,
 				2F2B410B16807CB9003DD09A /* FAQ.pdf in Resources */,
 				2F2B410C16807CB9003DD09A /* What's new?.pdf in Resources */,
+				2FF748AF1689BCA800860AC2 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3584,6 +3651,7 @@
 				2F2B427B16807CCF003DD09A /* About us.pdf in Resources */,
 				2F2B427C16807CCF003DD09A /* FAQ.pdf in Resources */,
 				2F2B427D16807CCF003DD09A /* What's new?.pdf in Resources */,
+				2FF748AE1689BCA100860AC2 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3774,6 +3842,7 @@
 				2FFF5CFC1679F76400DF58B3 /* About us.pdf in Resources */,
 				2FFF5CFD1679F76400DF58B3 /* FAQ.pdf in Resources */,
 				2FFF5CFE1679F76400DF58B3 /* What's new?.pdf in Resources */,
+				2FF748AD1689BC9A00860AC2 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

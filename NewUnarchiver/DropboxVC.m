@@ -24,8 +24,16 @@
 
 @implementation DropboxVC
 
++ (void) logOut
+{
+    [[DBSession sharedSession] unlinkAll];
+}
+
 - (void) dropboxLinkNotification
 {
+    [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"link_dropbox"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     self.restClient = nil;    
     [super reloadFiles];
 }

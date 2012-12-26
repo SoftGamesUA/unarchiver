@@ -45,6 +45,7 @@ typedef enum _DetailViewMode
 {
     MBProgressHUD * _progressHUD;
     QuickMessage * _quickMessage;
+    NSMutableDictionary * _previousDefaults;
 }
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
