@@ -102,8 +102,11 @@
         if (![DBSession sharedSession])
         {
             DBSession * session = [[DBSession alloc] initWithAppKey:DB_APP_KEY appSecret:DB_APP_SECRET root:kDBRootDropbox];
+            session.delegate = self;
             [DBSession setSharedSession:session];
             [session release];
+            
+           // [DBRequest setNetworkRequestDelegate:self];
         }
     }
     return self;
@@ -130,7 +133,7 @@
     }
     else
     {
-        [[DBSession sharedSession] link];
+        [[DBSession sharedSession] linkFromController:self];
     }
 }
 
@@ -679,6 +682,12 @@
     
     _loadToCache = false;
     [self.restClient loadFile:file.path atRev:nil intoPath:newPath];
+}
+#pragma mark -
+#pragma mark DBSessionDelegate methods
+
+- (void)sessionDidReceiveAuthorizationFailure:(DBSession*)session userId:(NSString *)userId {
+	[[DBSession sharedSession] linkUserId:userId fromController:self];
 }
 
 #pragma mark - reachability
