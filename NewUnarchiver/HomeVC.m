@@ -76,7 +76,7 @@
     [navBar setViewModeButtonImage:[UIImage imageNamed:@"listBtnFolder"]];
     [navBar setSettingsButtonImage:[UIImage imageNamed:@"settingsBtnFolder"]];
     [navBar setLabelTextColor:[UIColor colorWithPatternImage:patternImage]];
-    [navBar setLabelText:@"UnArchiver (2.0)"];
+    [navBar setLabelText:[NSString stringWithFormat:NSLocalizedString(@"UnArchiver %@",nil),@"(2.5)"]];
     [navBar setSubLabelText:NSLocalizedString(@"Home", nil)];
 }
 
