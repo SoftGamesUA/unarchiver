@@ -62,6 +62,8 @@
 	{
         [self initPopoverBgViews];
         [_splitVC setDividerStyle: MGSplitViewDividerStyleUnarchiver animated:YES];
+        _splitVC.showsMasterInLandscape = YES;
+        _splitVC.showsMasterInPortrait = YES;
         [_splitVC toggleMasterView:nil];
     
         HomeVC *vc1 = [[HomeVC alloc] init];
@@ -76,6 +78,10 @@
         
         _quickMessage = [[QuickMessage alloc] initWithFrame:_splitVC.view.frame];
         [_splitVC.view addSubview:_quickMessage];
+        
+        _splitVC.showsMasterInLandscape = YES;
+        _splitVC.showsMasterInPortrait = YES;
+
     }
     else
     {
