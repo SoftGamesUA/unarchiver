@@ -10,7 +10,7 @@
 #import <DropboxSDK/DropboxSDK.h>
 #import "Reachability.h"
 
-@interface DropboxVC : FileVC <DBRestClientDelegate>
+@interface DropboxVC : FileVC <DBRestClientDelegate, DBSessionDelegate>
 {
     CGRect openFileCellRect;
     int _filesToLoadCount;

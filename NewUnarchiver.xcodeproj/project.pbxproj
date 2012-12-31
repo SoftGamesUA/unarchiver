@@ -1366,13 +1366,13 @@
 		2F2660F816691564005CB48A /* previewBtnCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previewBtnCamera.png; sourceTree = "<group>"; };
 		2F2660FA1669156E005CB48A /* previewBtnBoxnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previewBtnBoxnet.png; sourceTree = "<group>"; };
 		2F2B3E2E16807C57003DD09A /* DropboxUnarchiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropboxUnarchiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F2B3E3016807C57003DD09A /* GoogleUnarchiver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleUnarchiver-Info.plist"; path = "/Users/koval/Projects/Filer/GoogleUnarchiver-Info.plist"; sourceTree = "<absolute>"; };
+		2F2B3E3016807C57003DD09A /* GoogleUnarchiver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleUnarchiver-Info.plist"; sourceTree = "<group>"; };
 		2F2B3F9F16807CA3003DD09A /* BoxUnarchiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxUnarchiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F2B3FA116807CA3003DD09A /* DropboxUnarchiver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DropboxUnarchiver-Info.plist"; path = "/Users/koval/Projects/Filer/DropboxUnarchiver-Info.plist"; sourceTree = "<absolute>"; };
+		2F2B3FA116807CA3003DD09A /* DropboxUnarchiver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DropboxUnarchiver-Info.plist"; sourceTree = "<group>"; };
 		2F2B411016807CB9003DD09A /* YandexUnarchiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexUnarchiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F2B411216807CB9003DD09A /* BoxUnarchiver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BoxUnarchiver-Info.plist"; path = "/Users/koval/Projects/Filer/BoxUnarchiver-Info.plist"; sourceTree = "<absolute>"; };
+		2F2B411216807CB9003DD09A /* BoxUnarchiver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BoxUnarchiver-Info.plist"; sourceTree = "<group>"; };
 		2F2B428116807CCF003DD09A /* GoogleUnarchiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleUnarchiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F2B428316807CCF003DD09A /* YandexUnarchiver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "YandexUnarchiver-Info.plist"; path = "/Users/koval/Projects/Filer/YandexUnarchiver-Info.plist"; sourceTree = "<absolute>"; };
+		2F2B428316807CCF003DD09A /* YandexUnarchiver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YandexUnarchiver-Info.plist"; sourceTree = "<group>"; };
 		2F420C41165CF7ED006C07E1 /* googleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleIcon.png; sourceTree = "<group>"; };
 		2F420C42165CF7ED006C07E1 /* googleIconPush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleIconPush.png; sourceTree = "<group>"; };
 		2F420C43165CF7ED006C07E1 /* googleNavBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleNavBarIcon.png; sourceTree = "<group>"; };
