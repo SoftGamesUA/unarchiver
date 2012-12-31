@@ -31,7 +31,8 @@
 
 - (void) otherApps
 {
-    
+    NSString * URL = @"https://itunes.apple.com/artist/softgames/id371925181";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URL]];
 }
 
 #pragma mark - init
@@ -266,7 +267,7 @@
 {
     if (popoverContent.btnCount == 1)
     {
-        return NSLocalizedString(@"I like Unarchiver", nil);
+        return NSLocalizedString(@"I like CloudFiles", nil);
     }
     else
     {
@@ -280,7 +281,7 @@
         }
         else if (index == 2)
         {
-            return NSLocalizedString(@"I like Unarchiver", nil);
+            return NSLocalizedString(@"I like CloudFiles", nil);
         }
     }
     
