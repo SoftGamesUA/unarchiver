@@ -68,7 +68,24 @@
 
 - (void) customizeInterface
 {
-    UIImage * patternImage = [UIImage imageNamed:@"folderBorder"];
+    
+//#ifdef DROPBOX_UNARCHIVER
+//#import "DropboxVC.h"
+//#endif
+//    
+//#ifdef BOX_UNARCHIVER
+//#import "BoxVC.h"
+//#endif
+//
+//#ifdef YANDEX_UNARCHIVER
+//#import "YandexDiskVC.h"
+//#endif
+//    
+//#ifdef GOOGLE_UNARCHIVER
+//#import "GoogleDriveVC.h"
+//#endif
+    
+    UIImage * patternImage = [UIImage imageNamed:@"dropboxBorder"];
     [self setImageBorder:patternImage];
     
     [navBar setBackgroundImage:[UIImage imageNamed:@"navBarBG"]];
@@ -76,7 +93,7 @@
     [navBar setViewModeButtonImage:[UIImage imageNamed:@"listBtnFolder"]];
     [navBar setSettingsButtonImage:[UIImage imageNamed:@"settingsBtnFolder"]];
     [navBar setLabelTextColor:[UIColor colorWithPatternImage:patternImage]];
-    [navBar setLabelText:[NSString stringWithFormat:NSLocalizedString(@"UnArchiver %@",nil),@"(2.5)"]];
+    [navBar setLabelText:[NSString stringWithFormat:NSLocalizedString(@"CloudFiles %@",nil),@"(1.0)"]];
     [navBar setSubLabelText:NSLocalizedString(@"Home", nil)];
 }
 
