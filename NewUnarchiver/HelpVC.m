@@ -25,8 +25,8 @@
 
 - (void) like
 {
-    //NSString * URL;
-    //[[UIApplication sharedApplication] openURL: URL];
+    NSString* url = [NSString stringWithFormat:  @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8", @"590223169"];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url ]];
 }
 
 - (void) otherApps
@@ -123,7 +123,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 6;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -156,7 +156,7 @@
     }
     
     
-    NSArray * titles = @[NSLocalizedString(@"What's new?", nil), NSLocalizedString(@"Tutorial", nil), NSLocalizedString(@"FAQ", nil),
+    NSArray * titles = @[/*NSLocalizedString(@"What's new?", nil), NSLocalizedString(@"Tutorial", nil), NSLocalizedString(@"FAQ", nil),*/
     NSLocalizedString(@"Send us feedback", nil), NSLocalizedString(@"About us", nil), NSLocalizedString(@"Other Apps", nil)];
     
     cell.textLabel.text = [titles objectAtIndex:indexPath.section];
@@ -173,36 +173,36 @@
     
     switch (indexPath.section)
     {
+//        case 0:
+//        {
+//            FileViewer * vc = [[FileViewer alloc] init];
+//            NSString * name = NSLocalizedString(@"What's new?", nil);
+//            vc.URL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"What's new?.pdf" ofType:nil]];
+//            vc.title = name;
+//            [self.navigationController pushViewController:vc animated:true];
+//            [vc release];
+//            break;
+//        }
+//        case 1:
+//        {            
+//            VideoViewer * vc = [[VideoViewer alloc] init];
+//            vc.URLString = @"http://www.youtube.com/watch?v=fVxd9NHQTEU";
+//            vc.title = NSLocalizedString(@"Tutorial", nil);
+//            [self.navigationController pushViewController:vc animated:true];
+//            [vc release];
+//            break;
+//        }
+//        case 2:
+//        {
+//            FileViewer * vc = [[FileViewer alloc] init];
+//            NSString * name = NSLocalizedString(@"FAQ", nil);
+//            vc.URL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:name ofType:@"pdf"]];
+//            vc.title = name;
+//            [self.navigationController pushViewController:vc animated:true];
+//            [vc release];
+//            break;
+//        }
         case 0:
-        {
-            FileViewer * vc = [[FileViewer alloc] init];
-            NSString * name = NSLocalizedString(@"What's new?", nil);
-            vc.URL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"What's new?.pdf" ofType:nil]];
-            vc.title = name;
-            [self.navigationController pushViewController:vc animated:true];
-            [vc release];
-            break;
-        }
-        case 1:
-        {            
-            VideoViewer * vc = [[VideoViewer alloc] init];
-            vc.URLString = @"http://www.youtube.com/watch?v=fVxd9NHQTEU";
-            vc.title = NSLocalizedString(@"Tutorial", nil);
-            [self.navigationController pushViewController:vc animated:true];
-            [vc release];
-            break;
-        }
-        case 2:
-        {
-            FileViewer * vc = [[FileViewer alloc] init];
-            NSString * name = NSLocalizedString(@"FAQ", nil);
-            vc.URL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:name ofType:@"pdf"]];
-            vc.title = name;
-            [self.navigationController pushViewController:vc animated:true];
-            [vc release];
-            break;
-        }
-        case 3:
         {
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
             {
@@ -212,21 +212,21 @@
             }
             else
             {
-                [self.actionSheetFeedback showInView:self.view];  
+                [self.actionSheetFeedback showInView:self.view];
             }
             break;
         }
-        case 4:
+        case 1:
         {
             FileViewer * vc = [[FileViewer alloc] init];
-            NSString * name = NSLocalizedString(@"About us", nil);
+            NSString * name = @"About us";
             vc.URL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:name ofType:@"pdf"]];
             vc.title = name;
             [self.navigationController pushViewController:vc animated:true];
             [vc release];
             break;
         }
-        case 5:
+        case 2:
         {
             [self otherApps];
         }
@@ -354,7 +354,7 @@
         [_actionSheetFeedback addButtonWithTitle:NSLocalizedString(@"Suggest a feature", nil)];
     }
     
-    [_actionSheetFeedback addButtonWithTitle:NSLocalizedString(@"I like Unarchiver", nil)];
+    [_actionSheetFeedback addButtonWithTitle:NSLocalizedString(@"I like CloudFiles", nil)];
     [_actionSheetFeedback addButtonWithTitle:NSLocalizedString(@"Cancel", nil)];
     
     _actionSheetFeedback.cancelButtonIndex = _actionSheetFeedback.numberOfButtons - 1;
