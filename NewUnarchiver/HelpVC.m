@@ -5,6 +5,7 @@
 //  Created by Zhenya Koval on 13.12.12.
 //  Copyright (c) 2012 SoftGames. All rights reserved.
 //
+#import "config.h"
 
 #import "HelpVC.h"
 #import "AppDelegate.h"
@@ -25,7 +26,9 @@
 
 - (void) like
 {
-    NSString* url = [NSString stringWithFormat:  @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8", @"590223169"];
+    NSString* url = [NSString stringWithFormat:  @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8", APP_ITUNES_ID];
+    NSLog(@"Like URL = %@", url);
+    
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url ]];
 }
 
