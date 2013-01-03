@@ -12,3 +12,5 @@
 #define HOME_SEC_1_ROW_COUNT    1
 
 #define APP_ITUNES_ID @"590223169"
+
+#define YANDEX_CLIENT_ID    @"cbc3617a098c48ccbeea5cbfd2445991"

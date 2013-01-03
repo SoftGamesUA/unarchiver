@@ -5,7 +5,7 @@
 //  Created by Zhenya Koval on 02.11.12.
 //  Copyright (c) 2012 SoftGames. All rights reserved.
 //
-
+#import "config.h"
 #import "YandexDiskVC.h"
 #import "FolderVC.h"
 #import "DataURLConnection.h"
@@ -13,7 +13,7 @@
 static NSString * yandexToken;
 
 #define API_URL             @"https://webdav.yandex.ru"
-#define YANDEX_CLIENT_ID    @"6dbb1ccae708457db589fe888447ecc8"
+
 
 @interface YandexDiskVC ()
 

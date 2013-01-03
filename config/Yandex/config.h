@@ -10,3 +10,7 @@
  
 #define CAMERA_UNARCHIVER       0
 #define HOME_SEC_1_ROW_COUNT    1
+
+#define APP_ITUNES_ID @"591076102"
+
+#define YANDEX_CLIENT_ID    @"309b2ca990cf4a8b9a756cfc29ae66ca"
