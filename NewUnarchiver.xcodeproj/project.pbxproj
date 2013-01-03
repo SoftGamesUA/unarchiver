@@ -1204,6 +1204,10 @@
 		A67995D81695F5400065482F /* homeBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = A67995D71695F5400065482F /* homeBorder.png */; };
 		A67995DA1695F5710065482F /* homeBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = A67995D91695F5710065482F /* homeBorder.png */; };
 		A67995DC1695F5A10065482F /* homeBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = A67995DB1695F5A10065482F /* homeBorder.png */; };
+		A67995E41695F6B40065482F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A67995DF1695F6B40065482F /* icon.png */; };
+		A67995E51695F6B40065482F /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67995E01695F6B40065482F /* icon@2x.png */; };
+		A67995E61695F6B40065482F /* icon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = A67995E11695F6B40065482F /* icon@iPad.png */; };
+		A67995E71695F6B40065482F /* icon@iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67995E21695F6B40065482F /* icon@iPad@2x.png */; };
 		A6E66A5F169462BC006C1A03 /* About us.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A6E66A65169462BC006C1A03 /* About us.pdf */; };
 		A6E66A60169462BC006C1A03 /* About us.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A6E66A65169462BC006C1A03 /* About us.pdf */; };
 		A6E66A61169462BC006C1A03 /* About us.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A6E66A65169462BC006C1A03 /* About us.pdf */; };
@@ -1758,6 +1762,10 @@
 		A67995D71695F5400065482F /* homeBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeBorder.png; sourceTree = "<group>"; };
 		A67995D91695F5710065482F /* homeBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeBorder.png; sourceTree = "<group>"; };
 		A67995DB1695F5A10065482F /* homeBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeBorder.png; sourceTree = "<group>"; };
+		A67995DF1695F6B40065482F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		A67995E01695F6B40065482F /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		A67995E11695F6B40065482F /* icon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@iPad.png"; sourceTree = "<group>"; };
+		A67995E21695F6B40065482F /* icon@iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@iPad@2x.png"; sourceTree = "<group>"; };
 		A67B3D46169462CF00F841D2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ru; path = "ru.lproj/About us.pdf"; sourceTree = "<group>"; };
 		A6E66A64169462BC006C1A03 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = en; path = "en.lproj/About us.pdf"; sourceTree = "<group>"; };
 		BAA7257F16528FF600CD0A5B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -2969,6 +2977,7 @@
 			children = (
 				A65407851695C05000A67B1A /* Dropbox */,
 				A65407911695C93700A67B1A /* Google */,
+				A67995DD1695F6B40065482F /* Yandex */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -2995,6 +3004,18 @@
 			);
 			name = Google;
 			path = config/Google;
+			sourceTree = SOURCE_ROOT;
+		};
+		A67995DD1695F6B40065482F /* Yandex */ = {
+			isa = PBXGroup;
+			children = (
+				A67995DF1695F6B40065482F /* icon.png */,
+				A67995E01695F6B40065482F /* icon@2x.png */,
+				A67995E11695F6B40065482F /* icon@iPad.png */,
+				A67995E21695F6B40065482F /* icon@iPad@2x.png */,
+			);
+			name = Yandex;
+			path = config/Yandex;
 			sourceTree = SOURCE_ROOT;
 		};
 		BAF97956164BC9AA00FC1C9D /* files */ = {
@@ -3559,6 +3580,10 @@
 				2F2B410C16807CB9003DD09A /* What's new?.pdf in Resources */,
 				2FF748AF1689BCA800860AC2 /* Settings.bundle in Resources */,
 				A67995DA1695F5710065482F /* homeBorder.png in Resources */,
+				A67995E41695F6B40065482F /* icon.png in Resources */,
+				A67995E51695F6B40065482F /* icon@2x.png in Resources */,
+				A67995E61695F6B40065482F /* icon@iPad.png in Resources */,
+				A67995E71695F6B40065482F /* icon@iPad@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4484,6 +4509,7 @@
 		2F2B410E16807CB9003DD09A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitaliy Losi (5Z329PAF9T)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4505,6 +4531,7 @@
 		2F2B410F16807CB9003DD09A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitaliy Losi (5Z329PAF9T)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4567,7 +4594,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = armv7;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitaliy Losi (5Z329PAF9T)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -4593,7 +4620,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = armv7;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitaliy Losi (5Z329PAF9T)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

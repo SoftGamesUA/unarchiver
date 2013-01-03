@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Yandex Filer</string>
+	<string>CloudFiles Yandex</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
