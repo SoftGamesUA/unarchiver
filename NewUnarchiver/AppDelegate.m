@@ -116,7 +116,7 @@
 #endif
     
     NSString * fullString = [url absoluteString];
-    if ([fullString hasPrefix:@"yandex-6dbb1ccae708457db589fe888447ecc8"] )
+    if ([fullString hasPrefix:@"yandex-"] )
     {
         NSArray * components = [fullString componentsSeparatedByString:@"#"];
         NSString * parametersString = [components objectAtIndex:1];
