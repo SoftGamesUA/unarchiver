@@ -10,3 +10,5 @@
 
 #define CAMERA_UNARCHIVER       0
 #define HOME_SEC_1_ROW_COUNT    1
+
+#define APP_ITUNES_ID @"590223169"
