@@ -68,24 +68,7 @@
 
 - (void) customizeInterface
 {
-    
-//#ifdef DROPBOX_UNARCHIVER
-//#import "DropboxVC.h"
-//#endif
-//    
-//#ifdef BOX_UNARCHIVER
-//#import "BoxVC.h"
-//#endif
-//
-//#ifdef YANDEX_UNARCHIVER
-//#import "YandexDiskVC.h"
-//#endif
-//    
-//#ifdef GOOGLE_UNARCHIVER
-//#import "GoogleDriveVC.h"
-//#endif
-    
-    UIImage * patternImage = [UIImage imageNamed:@"dropboxBorder"];
+    UIImage * patternImage = [UIImage imageNamed:@"homeBorder"];
     [self setImageBorder:patternImage];
     
     [navBar setBackgroundImage:[UIImage imageNamed:@"navBarBG"]];
