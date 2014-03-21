@@ -131,7 +131,7 @@
         return true;
     }
 
-    NSString * newPath = [NSString stringWithFormat:@"%@/%@", self.inbox, [[url path]lastPathComponent]];
+    NSString * newPath = [NSString stringWithFormat:@"%@/%@", [self.inbox path], [[url path]lastPathComponent]];
     [[NSFileManager defaultManager] moveItemAtPath:[url path] toPath:newPath error:nil];  
 	[[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:@"%@/%@", self.documents.path, @"Inbox"] error:NULL];
     

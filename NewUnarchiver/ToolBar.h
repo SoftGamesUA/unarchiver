@@ -27,6 +27,7 @@ typedef enum ToolBarBtnTag
 @interface ToolBar : UIView
 {
     NSMutableArray *_btns, * _imgViews;
+    UIToolbar * _toolBar;
 }
 
 @property (nonatomic, assign) id <ToolBarBtnDelegate> delegate;

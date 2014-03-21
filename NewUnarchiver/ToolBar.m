@@ -59,12 +59,15 @@
         
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
         
-        UIImage *imgBg = [UIImage imageNamed:@"toolBarBG"];
-        UIImageView *imgViewBg = [[UIImageView alloc] initWithImage:imgBg];
-        imgViewBg.frame = self.bounds;
-        imgViewBg.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [self addSubview:imgViewBg];
-        [imgViewBg release];
+//        UIImage *imgBg = [UIImage imageNamed:@"toolBarBG"];
+//        UIImageView *imgViewBg = [[UIImageView alloc] initWithImage:imgBg];
+//        imgViewBg.frame = self.bounds;
+//        imgViewBg.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        _toolBar = [UIToolbar new];
+        _toolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        [self addSubview:_toolBar];
+        
+//        [imgViewBg release];
         
         _btns = [[NSMutableArray alloc] init];
         _imgViews = [[NSMutableArray alloc] init];

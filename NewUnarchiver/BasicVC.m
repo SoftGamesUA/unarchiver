@@ -33,10 +33,10 @@
     imgViewTop.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:imgViewTop];
     
-    imgViewBottom = [[UIImageView alloc] initWithFrame:
-                      CGRectMake(0, self.view.frame.size.height - borderHeight, self.view.frame.size.width, borderHeight)];
-    imgViewBottom.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;;
-    [self.view addSubview:imgViewBottom];
+//    imgViewBottom = [[UIImageView alloc] initWithFrame:
+//                      CGRectMake(0, self.view.frame.size.height - borderHeight, self.view.frame.size.width, borderHeight)];
+//    imgViewBottom.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;;
+//    [self.view addSubview:imgViewBottom];
 }
 
 - (void) initNavBar:(NavBarStyle)navBarStyle
@@ -63,7 +63,7 @@
 {
     CGRect toolBarFrame = navBar.frame;
     toolBarFrame.size.height = toolBarHeight;
-    toolBarFrame.origin.y = self.view.frame.size.height - borderHeight - toolBarHeight;
+    toolBarFrame.origin.y = self.view.frame.size.height  - toolBarHeight;
     
     toolBar = [[ToolBar alloc] initWithFrame:toolBarFrame];
     toolBar.delegate = self;
@@ -99,7 +99,7 @@
 
     CGRect contentFrame;
     contentFrame.origin = CGPointMake(0, navBar.frame.origin.y + navBarHeight);
-    contentFrame.size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - navBarHeight - toolBarHeight - borderHeight * 2);
+    contentFrame.size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - navBarHeight - toolBarHeight - borderHeight * 1);
     contentView = [[UIView alloc] initWithFrame:contentFrame];
     contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:contentView];

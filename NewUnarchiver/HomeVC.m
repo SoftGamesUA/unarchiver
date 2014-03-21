@@ -76,7 +76,7 @@
     [navBar setViewModeButtonImage:[UIImage imageNamed:@"listBtnFolder"]];
     [navBar setSettingsButtonImage:[UIImage imageNamed:@"settingsBtnFolder"]];
     [navBar setLabelTextColor:[UIColor colorWithPatternImage:patternImage]];
-    [navBar setLabelText:[NSString stringWithFormat:NSLocalizedString(@"CloudFiles %@",nil),@"(1.0)"]];
+    [navBar setLabelText:[NSString stringWithFormat:NSLocalizedString(@"UnArchiver %@",nil),@"(3.0)"]];
     [navBar setSubLabelText:NSLocalizedString(@"Home", nil)];
 }
 
@@ -85,7 +85,7 @@
     self = [super initWithNavBarStyle:NavBarStyleHome toolbar:false];
     if (self) 
     {
-        
+    
     }
     return self;
 }

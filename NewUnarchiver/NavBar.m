@@ -31,11 +31,15 @@
     {
         _appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         
+        _toolBar = [UIToolbar new];
+        _toolBar.translucent = YES;
+        [self addSubview:_toolBar];
+        
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
-        _imgViewBg = [[UIImageView alloc] initWithFrame:self.bounds];
-        _imgViewBg.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [self addSubview:_imgViewBg];
+//        _imgViewBg = [[UIImageView alloc] initWithFrame:self.bounds];
+//        _imgViewBg.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//        [self addSubview:_imgViewBg];
         
         iconFrame = CGRectMake(space, space, barHeight - space * 2, barHeight - space * 2);
         _imgViewIcon = [[UIImageView alloc] initWithFrame:iconFrame];
@@ -258,6 +262,8 @@
 - (void) setLabelTextColor:(UIColor *)color
 {
     [_label setTextColor:color];
+    _toolBar.barTintColor = color;
+    
 }
 
 - (void) setLabelText:(NSString *)text
@@ -273,7 +279,8 @@
 
 - (void) setBackgroundImage:(UIImage *)image
 {
-     [_imgViewBg setImage:image];
+//     [_imgViewBg setImage:image];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void) setBackButtonImage:(UIImage *)image

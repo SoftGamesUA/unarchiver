@@ -39,7 +39,7 @@ typedef enum _NavBarCustomButtonType
     UIImageView * _imgViewIcon, * _imgViewBg;
     UIButton * _btnBack, * _btnCustom, *_btnPreviewMode, * _btnListMode, * _btnArchiveMode;
     UILabel * _label, * _subLabel;
-    
+    UIToolbar * _toolBar;
     NavBarStyle _style;
     NavBarCustomButtonType _customBtnType;
     

@@ -29,7 +29,7 @@
 #define YANDEX_TOKEN_NOTIFICATION       @"YANDEX_TOKEN_NOTIFICATION"
 #define YANDEX_TOKEN_KEY                @"YANDEX_TOKEN_KEY"
 
-#define borderHeight 5
+#define borderHeight 20
 #define navBarHeight 44
 #define toolBarHeight 50
 #define cellHeight 60
