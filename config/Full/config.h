@@ -8,8 +8,8 @@
 #define BOX_UNARCHIVER          6
 #define HOME_SEC_0_ROW_COUNT    7
 
-#define CAMERA_UNARCHIVER       0
-#define HOME_SEC_1_ROW_COUNT    1
+//#define CAMERA_UNARCHIVER       0
+#define HOME_SEC_1_ROW_COUNT    0
 
 #define APP_ITUNES_ID @"590223169"
 
