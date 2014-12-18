@@ -8,7 +8,7 @@
 
 #import "Unarchiver.h"
 
-#import <Unrar4iOS/Unrar4iOS.h>
+#import <UnrarKit/URKArchive.h>
 
 @interface Unarchiver ()
 
@@ -76,9 +76,10 @@
 {
 	if (!rar || !pathToUnRar) return false;
     
-    Unrar4iOS * unrar = [[Unrar4iOS alloc] init];
-        
-    if (![unrar unrarOpenFile:rar.path])
+    URKArchive * unrar = [URKArchive rarArchiveAtPath:rar.path];
+    NSError *error;
+    NSArray *files = [unrar listFiles:&error];
+    if (!files)
     {
         [unrar release];
         return false;
@@ -88,9 +89,8 @@
     NSFileManager * fm = [NSFileManager defaultManager];
     if(![fm fileExistsAtPath:pathToUnRar isDirectory:&isDir])	
         [fm createDirectoryAtPath:pathToUnRar withIntermediateDirectories:true attributes:nil error:nil];
-    
-    NSArray *files = [unrar unrarListFiles];
-	for (NSString * fileName in files) 
+
+	for (NSString * fileName in files)
 	{
         NSMutableArray *fileNameComponents = (NSMutableArray*)[fileName componentsSeparatedByString:@"/"];
 		if ([fileNameComponents count] > 1) 
@@ -102,13 +102,12 @@
 					
         }
 				
-        NSData *data = [unrar extractStream:fileName];
+        NSData *data = [[unrar extractDataFromFile:fileName error:&error] retain];
 		[data writeToFile:[NSString stringWithFormat:@"%@/%@", pathToUnRar, fileName] atomically:YES];
+        [data release];
     }
 			
-    [unrar unrarCloseFile];
     [unrar release];
-    
     return true;
 }
 

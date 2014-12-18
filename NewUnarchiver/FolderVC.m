@@ -68,7 +68,7 @@
     
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^
     {
-        NSMutableArray * fileNames = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:super.currentFolder.path error:nil] mutableCopy];
+        NSMutableArray * fileNames = [[[[NSFileManager defaultManager] contentsOfDirectoryAtPath:super.currentFolder.path error:nil] mutableCopy] retain];
         
         if ([super.currentFolder isEqual:appDelegate.documents])
         {   
@@ -80,11 +80,12 @@
         for (NSString * name in fileNames)
         {
             NSString * path = [self.currentFolder.path stringByAppendingPathComponent:name];
-            FileObject * file = [FileObject fileWithPath:path];
+            FileObject * file = [[FileObject fileWithPath:path] retain];
             BOOL isFolder;
             [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isFolder];
             file.isFolder = isFolder;
             [files addObject:file];
+            [file release];
         }
             
         [fileNames release];

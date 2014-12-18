@@ -31,7 +31,11 @@
 }
 
 - (id)firstObject {
-	return [self objectAtIndex:0];
+    if ([self count]) {
+        return [self objectAtIndex:0];
+    }
+    
+    return nil;
 }
 
 - (NSArray *)arrayByShiftingFirstObject {
