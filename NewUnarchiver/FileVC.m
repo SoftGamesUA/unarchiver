@@ -2018,7 +2018,7 @@ enum
     
     CGRect scrollFrame = breadcrumbsBounds;
     scrollFrame.origin.y = borderHeight;
-    scrollFrame.size.height = self.view.bounds.size.height - borderHeight * 2;
+    scrollFrame.size.height = self.view.bounds.size.height - borderHeight - borderHeightBottom;
     
     float maxScrollWidth = self.view.bounds.size.width - self.view.bounds.size.width / 4;
     if (breadcrumbsBounds.size.width > maxScrollWidth)  scrollFrame.size.width = maxScrollWidth;

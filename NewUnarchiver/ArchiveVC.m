@@ -40,7 +40,7 @@
     btnFrame.origin.x = gap;
     btnFrame.origin.y = _tableView.frame.origin.y + _tableView.frame.size.height + gap;
     btnFrame.size.width = self.view.frame.size.width - gap * 2;
-    btnFrame.size.height = (self.view.frame.size.height - btnFrame.origin.y - borderHeight - gap * 3) / 3;
+    btnFrame.size.height = (self.view.frame.size.height - btnFrame.origin.y - borderHeightBottom - gap * 3) / 3;
     _btnCreate = [[UIButton alloc] initWithFrame:btnFrame];
     [_btnCreate setTitle:NSLocalizedString(@"Create Archive", nil) forState:UIControlStateNormal];
     _btnCreate.titleLabel.textColor = [UIColor whiteColor];
@@ -92,7 +92,7 @@
     
     CGRect frame = self.view.bounds;
     frame.origin.y = navBar.frame.origin.y + navBar.frame.size.height;
-    frame.size.height = frame.size.height - frame.origin.y - borderHeight;
+    frame.size.height = frame.size.height - frame.origin.y - borderHeight - borderHeightBottom;
     UIImageView *bg = [[UIImageView alloc] initWithFrame:frame];
     bg.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     bg.image = [UIImage imageNamed:@"archiveBg"];

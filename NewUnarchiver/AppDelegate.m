@@ -433,7 +433,7 @@
 - (void) showQuickMesage:(NSString *)text
 {
     [_quickMessage.superview bringSubviewToFront:_quickMessage];
-    _quickMessage.frame = CGRectMake(0, _quickMessage.superview.bounds.size.height - borderHeight - navBarHeight, _quickMessage.superview.bounds.size.width, navBarHeight);
+    _quickMessage.frame = CGRectMake(0, _quickMessage.superview.bounds.size.height - borderHeightBottom - navBarHeight, _quickMessage.superview.bounds.size.width, navBarHeight);
     [_quickMessage showWithText:text];
 }
 

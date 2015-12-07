@@ -33,10 +33,10 @@
     imgViewTop.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:imgViewTop];
     
-//    imgViewBottom = [[UIImageView alloc] initWithFrame:
-//                      CGRectMake(0, self.view.frame.size.height - borderHeight, self.view.frame.size.width, borderHeight)];
-//    imgViewBottom.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;;
-//    [self.view addSubview:imgViewBottom];
+    imgViewBottom = [[UIImageView alloc] initWithFrame:
+                      CGRectMake(0, self.view.frame.size.height - borderHeightBottom, self.view.frame.size.width, borderHeightBottom)];
+    imgViewBottom.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;;
+    [self.view addSubview:imgViewBottom];
 }
 
 - (void) initNavBar:(NavBarStyle)navBarStyle
@@ -99,7 +99,7 @@
 
     CGRect contentFrame;
     contentFrame.origin = CGPointMake(0, navBar.frame.origin.y + navBarHeight);
-    contentFrame.size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - navBarHeight - toolBarHeight - borderHeight * 1);
+    contentFrame.size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - navBarHeight - toolBarHeight - borderHeight - borderHeightBottom);
     contentView = [[UIView alloc] initWithFrame:contentFrame];
     contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:contentView];

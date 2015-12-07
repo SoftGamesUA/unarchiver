@@ -39,7 +39,7 @@
     [_previewer setCurrentPreviewItemIndex:0];
     CGRect frame = self.view.bounds;
     frame.origin.y = navBar.frame.origin.y + navBar.frame.size.height;
-    frame.size.height = frame.size.height - frame.origin.y - borderHeight;
+    frame.size.height = frame.size.height - frame.origin.y - borderHeight - borderHeightBottom;
     _previewer.view.frame = frame;
     [self.view addSubview:_previewer.view];
 

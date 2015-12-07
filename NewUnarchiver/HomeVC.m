@@ -66,6 +66,16 @@
     [self.view addSubview:_tableView];
 }
 
+- (NSString *)getVersionNumber
+{
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"]; // example: 1.0.0
+    NSNumber *buildNumber = [infoDict objectForKey:@"CFBundleVersion"]; // example: 42
+    
+    return [NSString stringWithFormat:@"%@ (%@)",appVersion,buildNumber];
+}
+
+
 - (void) customizeInterface
 {
     UIImage * patternImage = [UIImage imageNamed:@"homeBorder"];
@@ -76,7 +86,7 @@
     [navBar setViewModeButtonImage:[UIImage imageNamed:@"listBtnFolder"]];
     [navBar setSettingsButtonImage:[UIImage imageNamed:@"settingsBtnFolder"]];
     [navBar setLabelTextColor:[UIColor colorWithPatternImage:patternImage]];
-    [navBar setLabelText:[NSString stringWithFormat:NSLocalizedString(@"UnArchiver %@",nil),@"(3.0)"]];
+    [navBar setLabelText:[NSString stringWithFormat:NSLocalizedString(@"UnArchiver %@",nil),[self getVersionNumber]]];
     [navBar setSubLabelText:NSLocalizedString(@"Home", nil)];
 }
 
