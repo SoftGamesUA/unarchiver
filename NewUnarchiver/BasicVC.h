@@ -8,9 +8,11 @@
 
 #import "NavBar.h"
 #import "ToolBar.h"
+#import "ModalView.h"
+#import "StoreKitBindingiOS.h"
 
 @class PreviewVC;
-@interface BasicVC : UIViewController <ToolBarBtnDelegate, NavBarDelegate>
+@interface BasicVC : UIViewController <ToolBarBtnDelegate, NavBarDelegate, ModalViewDelegate, StoreKitBindingDelegate>
 {
     AppDelegate * appDelegate;
     
@@ -31,7 +33,7 @@
     PreviewVC * _previewOnPhone;
 }
 
-
+@property (nonatomic, retain) ModalView * purchaseDropboxModalView;
 @property (nonatomic, assign) bool isMaster;
 
 - (id)initWithNavBarStyle:(NavBarStyle)navBarStyle toolbar:(bool)toolbar;
@@ -43,4 +45,6 @@
 - (void) showPreviewOnPhone;
 - (void) hidePreviewOnPhone;
 
+//FREE VERSION
+- (bool) isDropboxPurchased;
 @end

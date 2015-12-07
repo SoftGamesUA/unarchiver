@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>UnArchiver</string>
+	<string>UnArchiver F</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -80,7 +80,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.softgames.unarchiver</string>
+	<string>com.softgames.unarchiverphone</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

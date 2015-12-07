@@ -17,9 +17,15 @@
 
 @end
 
+#define IDpaymant @"com.unarchiver.free.pro"
+
+#define  PRO_VERSION_KEY @"unrar.pro.purch"
+#define  PRO_VERSION_PURCHAS @"SPASIBO ZHITELAM DONBASSA!!!"
+
 @implementation BasicVC
 
 @synthesize isMaster = _isMaster;
+@synthesize purchaseDropboxModalView = _purchaseDropboxModalView;
 
 - (void) setImageBorder:(UIImage *)img
 {
@@ -103,6 +109,9 @@
     contentView = [[UIView alloc] initWithFrame:contentFrame];
     contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:contentView];
+    
+    [[StoreKitBindingiOS sharedManager] setDelegate:self];
+    [[StoreKitBindingiOS sharedManager] requestProductData:IDpaymant];
 }
 
 - (void) viewDidUnload
@@ -286,6 +295,123 @@ return _previewOnPhone != nil;
     }
     
     [toolBar sizeToFit];
+}
+
+#pragma mark - FREE VERSION
+
+- (void) btnPROClick
+{
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString: @"http://bit.ly/12DvRqU" ]];
+    
+    [self.purchaseDropboxModalView hide];
+}
+
+- (void) btnLaterClick
+{
+    NSString * URL = @"https://itunes.apple.com/artist/softgames/id371925181";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URL]];
+    
+    [self.purchaseDropboxModalView hide];
+    
+}
+
+- (ModalView *) purchaseDropboxModalView
+{
+    if (!_purchaseDropboxModalView)
+    {
+        _purchaseDropboxModalView = [[ModalView alloc] initWithStyle:ModalViewStyleCustom btnTitles: nil];
+        _purchaseDropboxModalView.titleLabel.text = NSLocalizedString(@"Purchase PRO support.(InApp)", nil);
+        _purchaseDropboxModalView.delegate = self;
+        
+        CGRect btnFrame;
+        btnFrame.size = CGSizeMake(_purchaseDropboxModalView.contentView.frame.size.width / 3,
+                                   _purchaseDropboxModalView.contentView.frame.size.height / 4);
+        btnFrame.origin = CGPointMake(_purchaseDropboxModalView.contentView.frame.size.width / 2 - btnFrame.size.width - 5,
+                                      _purchaseDropboxModalView.contentView.frame.size.height / 2 - btnFrame.size.height / 2.5);
+        
+        UIButton * btnBuy = [UIButton buttonWithType:UIButtonTypeCustom];
+        btnBuy.frame = btnFrame;
+        [btnBuy setTitle: NSLocalizedString(@"Buy", nil) forState:UIControlStateNormal];
+        [btnBuy setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btnBuy addTarget:self action:@selector(btnBuyClick) forControlEvents:UIControlEventTouchUpInside];
+        [btnBuy setBackgroundImage:[[UIImage imageNamed:@"whiteBtn"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]
+                          forState:UIControlStateNormal];
+        [btnBuy setBackgroundImage:[[UIImage imageNamed:@"whiteBtnPush"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]
+                          forState:UIControlStateHighlighted];
+        [_purchaseDropboxModalView.contentView addSubview:btnBuy];
+        
+        UIButton * btnRestore = [UIButton buttonWithType:UIButtonTypeCustom];
+        btnFrame.origin.x =_purchaseDropboxModalView.contentView.frame.size.width / 2 + 5;
+        btnRestore.frame = btnFrame;
+        [btnRestore setTitle: NSLocalizedString(@"Restore", nil) forState:UIControlStateNormal];
+        [btnRestore setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btnRestore addTarget:self action:@selector(btnRestoreClick) forControlEvents:UIControlEventTouchUpInside];
+        [btnRestore setBackgroundImage:[[UIImage imageNamed:@"whiteBtn"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]
+                              forState:UIControlStateNormal];
+        [btnRestore setBackgroundImage:[[UIImage imageNamed:@"whiteBtnPush"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]
+                              forState:UIControlStateHighlighted];
+        [_purchaseDropboxModalView.contentView addSubview:btnRestore];
+    }
+    
+    return _purchaseDropboxModalView;
+}
+
+#pragma mark - Store Kit
+
+- (bool) isDropboxPurchased
+{
+#warning NO -- IS FREE VERSION
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:PRO_VERSION_KEY] isEqualToString:PRO_VERSION_PURCHAS]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+
+- (void) purchaseDropbox
+{
+    [[NSUserDefaults standardUserDefaults] setObject:PRO_VERSION_PURCHAS forKey:PRO_VERSION_KEY];
+}
+
+
+-(void)storeKit:(StoreKitBindingiOS*)_storeKit getProducts:(NSString*)products
+{
+    if ([products isEqualToString:@""]) [appDelegate hideProgressHUD];
+}
+
+-(void)storeKit:(StoreKitBindingiOS*)_storeKit productPurchased:(NSString*)product
+{
+    [appDelegate hideProgressHUD];
+    
+    [self purchaseDropbox];
+    //    [self tableView:_tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:DropboxRow inSection:0]];
+}
+
+-(void)storeKit:(StoreKitBindingiOS*)_storeKit productCanceled:(NSString*)product
+{
+    [appDelegate hideProgressHUD];
+}
+
+-(void)storeKit:(StoreKitBindingiOS*)_storeKit failWithError:(NSError*)error
+{
+    [appDelegate hideProgressHUD];
+}
+
+- (void) btnRestoreClick
+{
+    [appDelegate showProgressHUDWithText:NSLocalizedString(@"Loading", nil)];
+    
+    [self.purchaseDropboxModalView hide];
+    [[StoreKitBindingiOS sharedManager] restoreCompletedTransactions];
+}
+
+- (void) btnBuyClick
+{
+    [appDelegate showProgressHUDWithText:NSLocalizedString(@"Loading", nil)];
+    
+    [self.purchaseDropboxModalView hide];
+    [[StoreKitBindingiOS sharedManager] purchaseProduct:IDpaymant quantity:1];
 }
 
 @end

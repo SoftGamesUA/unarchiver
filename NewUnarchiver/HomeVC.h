@@ -11,9 +11,8 @@
 #import "BasicVC.h"
 
 //#import "ModalView.h"
-//#import "StoreKitBindingiOS.h"
 
-@interface HomeVC : BasicVC <UITableViewDataSource, UITableViewDelegate/*, ModalViewDelegate, StoreKitBindingDelegate*/>
+@interface HomeVC : BasicVC <UITableViewDataSource, UITableViewDelegate>
 {
     UITableView * _tableView;
     

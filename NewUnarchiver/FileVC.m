@@ -861,6 +861,13 @@ enum
 
 - (void) open:(FileObject *)file cellRect:(CGRect)cellRect
 {
+#warning FREE Version
+    if ([self isDropboxPurchased] == NO)
+    {
+        [self.purchaseDropboxModalView show];
+        return;
+    }
+    
     [appDelegate showProgressHUDWithText:NSLocalizedString(@"Opening", nil)];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^

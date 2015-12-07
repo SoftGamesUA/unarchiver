@@ -35,15 +35,7 @@
     #import "PTPasscodeViewController.h"
 #endif
 
-//#define IDpaymant @"unarchiverdropbox"
-
-@interface HomeVC()
-@property (nonatomic, retain) ModalView * purchaseDropboxModalView;
-@end
-
 @implementation HomeVC
-
-@synthesize purchaseDropboxModalView = _purchaseDropboxModalView;
 
 - (void) initTable
 {
@@ -108,9 +100,6 @@
 
     [self initTable];
     [self customizeInterface];
-    
-    //[[StoreKitBindingiOS sharedManager] setDelegate:self];
-    //[[StoreKitBindingiOS sharedManager] requestProductData:IDpaymant];
 }
 
 - (void)viewDidUnload
@@ -297,19 +286,26 @@
 
         if (indexPath.row == XFOLDER_UNARCHIVER)
         {
-            PTPasscodeViewController * vc = [[PTPasscodeViewController alloc] initWithDelegate:self];
-            vc.modalPresentationStyle = UIModalPresentationFormSheet;
-            [appDelegate.window.rootViewController presentModalViewController:vc animated:YES];
-            
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            if ([self isDropboxPurchased])
             {
-                vc.view.superview.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-                CGRect frame = vc.view.superview.frame;
-                frame.size = CGSizeMake(kPasscodePanelWidth, kPasscodePanelHeight);
-                vc.view.superview.frame = frame;
-                vc.view.superview.center = CGPointMake(appDelegate.splitVC.view.bounds.size.width / 2, vc.view.superview.center.y);
+                PTPasscodeViewController * vc = [[PTPasscodeViewController alloc] initWithDelegate:self];
+                vc.modalPresentationStyle = UIModalPresentationFormSheet;
+                [appDelegate.window.rootViewController presentModalViewController:vc animated:YES];
+                
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+                {
+                    vc.view.superview.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+                    CGRect frame = vc.view.superview.frame;
+                    frame.size = CGSizeMake(kPasscodePanelWidth, kPasscodePanelHeight);
+                    vc.view.superview.frame = frame;
+                    vc.view.superview.center = CGPointMake(appDelegate.splitVC.view.bounds.size.width / 2, vc.view.superview.center.y);
+                }
+                [vc release];
             }
-            [vc release];
+            else
+            {
+                [self.purchaseDropboxModalView show];
+            }
         }
         
 #endif
@@ -326,12 +322,12 @@
         }
         
 #endif
-       
+        
 #ifdef DROPBOX_UNARCHIVER
         
         if (indexPath.row == DROPBOX_UNARCHIVER)
         {
-            //if ([self isDropboxPurchased])
+            if ([self isDropboxPurchased])
             {
                 DropboxVC *vc = [[DropboxVC alloc] init];
                 vc.isMaster = self.isMaster;
@@ -340,17 +336,18 @@
                 [self.navigationController pushViewController:vc animated:true];
                 [vc release];
             }
-            //else
+            else
             {
-                //[self.purchaseDropboxModalView show];
+                [self.purchaseDropboxModalView show];
             }
         }
-
+        
 #endif
-
+        
 #ifdef BOX_UNARCHIVER
-    
+        
         if (indexPath.row == BOX_UNARCHIVER)
+        {if ([self isDropboxPurchased])
         {
             BoxVC *vc = [[BoxVC alloc] init];
             vc.isMaster = self.isMaster;
@@ -358,12 +355,18 @@
             [self.navigationController pushViewController:vc animated:true];
             [vc release];
         }
-
+        else
+        {
+            [self.purchaseDropboxModalView show];
+        }
+        }
+        
 #endif
-
+        
 #ifdef YANDEX_UNARCHIVER
-    
+        
         if (indexPath.row == YANDEX_UNARCHIVER)
+        {if ([self isDropboxPurchased])
         {
             YandexDiskVC *vc = [[YandexDiskVC alloc] init];
             vc.isMaster = self.isMaster;
@@ -372,29 +375,41 @@
             [self.navigationController pushViewController:vc animated:true];
             [vc release];
         }
-
+        else
+        {
+            [self.purchaseDropboxModalView show];
+        }
+        }
+        
 #endif
-
+        
 #ifdef GOOGLE_UNARCHIVER
-    
+        
         if (indexPath.row == GOOGLE_UNARCHIVER)
         {
-            GoogleDriveVC *vc = [[GoogleDriveVC alloc] init];
-            vc.isMaster = self.isMaster;
-            vc.rootFolder = [FileObject folderWithID:@"root" displayName:@"Google"];
-              [self.navigationController pushViewController:vc animated:true];
-            [vc release];
+            if ([self isDropboxPurchased])
+            {
+                GoogleDriveVC *vc = [[GoogleDriveVC alloc] init];
+                vc.isMaster = self.isMaster;
+                vc.rootFolder = [FileObject folderWithID:@"root" displayName:@"Google"];
+                [self.navigationController pushViewController:vc animated:true];
+                [vc release];
+            }
+            else
+            {
+                [self.purchaseDropboxModalView show];
+            }
         }
-    
+        
 #endif
-    
+        
     }
     else if (indexPath.section == 1)
     {
-
+        
 #ifdef CAMERA_UNARCHIVER
         
-        if (indexPath.row == CAMERA_UNARCHIVER) 
+        if (indexPath.row == CAMERA_UNARCHIVER)
         {
             CameraVC *vc = [[CameraVC alloc] init];
             vc.isMaster = self.isMaster;
@@ -406,99 +421,6 @@
         
     }
 }
-
-/*#pragma mark - Store Kit
-
-- (bool) isDropboxPurchased
-{
-    NSString * db = [[NSUserDefaults standardUserDefaults] objectForKey:@"dropbox"];
-    return db != nil;
-}
-
-- (void) purchaseDropbox
-{
-    [[NSUserDefaults standardUserDefaults] setObject:@"SPASIBO ZHITELAM DONBASSA!!!" forKey:@"dropbox"];
-}
-
--(void)storeKit:(StoreKitBindingiOS*)_storeKit getProducts:(NSString*)products
-{
-    if ([products isEqualToString:@""]) [_appDelegate hideProgressHUD];
-}
-
--(void)storeKit:(StoreKitBindingiOS*)_storeKit productPurchased:(NSString*)product
-{
-    [_appDelegate hideProgressHUD];
-    
-    [self purchaseDropbox];
-    [self tableView:_tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:DropboxRow inSection:0]];
-}
-
--(void)storeKit:(StoreKitBindingiOS*)_storeKit productCanceled:(NSString*)product
-{
-    [_appDelegate hideProgressHUD];
-}
-
--(void)storeKit:(StoreKitBindingiOS*)_storeKit failWithError:(NSError*)error
-{
-    [_appDelegate hideProgressHUD];
-}
-
-- (void) btnRestoreClick
-{
-    [_appDelegate showProgressHUDWithText:NSLocalizedString(@"Loading", nil)];
-    
-    [self.purchaseDropboxModalView hide];
-    [[StoreKitBindingiOS sharedManager] restoreCompletedTransactions];
-}
-
-- (void) btnBuyClick
-{
-    [_appDelegate showProgressHUDWithText:NSLocalizedString(@"Loading", nil)];
-    
-    [self.purchaseDropboxModalView hide];
-    [[StoreKitBindingiOS sharedManager] purchaseProduct:IDpaymant quantity:1];
-}
-
-- (ModalView *) purchaseDropboxModalView
-{
-    if (!_purchaseDropboxModalView)
-    {
-        _purchaseDropboxModalView = [[ModalView alloc] initWithStyle:ModalViewStyleCustom btnTitles: nil];
-        _purchaseDropboxModalView.titleLabel.text = NSLocalizedString(@"Purchase Dropbox support. (BUY)", nil);
-        _purchaseDropboxModalView.delegate = self;
-        
-        CGRect btnFrame;
-        btnFrame.size = CGSizeMake(_purchaseDropboxModalView.contentView.frame.size.width / 3,
-                                   _purchaseDropboxModalView.contentView.frame.size.height / 4);
-        btnFrame.origin = CGPointMake(_purchaseDropboxModalView.contentView.frame.size.width / 2 - btnFrame.size.width - 5,
-                                      _purchaseDropboxModalView.contentView.frame.size.height / 2 - btnFrame.size.height / 2.5);
-        
-        UIButton * btnBuy = [UIButton buttonWithType:UIButtonTypeCustom];
-        btnBuy.frame = btnFrame;
-        [btnBuy setTitle: NSLocalizedString(@"Buy", nil) forState:UIControlStateNormal];
-        [btnBuy setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btnBuy addTarget:self action:@selector(btnBuyClick) forControlEvents:UIControlEventTouchUpInside];
-        [btnBuy setBackgroundImage:[[UIImage imageNamed:@"whiteBtn"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]
-                          forState:UIControlStateNormal];
-        [btnBuy setBackgroundImage:[[UIImage imageNamed:@"whiteBtnPush"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]
-                          forState:UIControlStateHighlighted];
-        [_purchaseDropboxModalView.contentView addSubview:btnBuy];
-        
-        UIButton * btnRestore = [UIButton buttonWithType:UIButtonTypeCustom];
-        btnFrame.origin.x =_purchaseDropboxModalView.contentView.frame.size.width / 2 + 5;
-        btnRestore.frame = btnFrame;
-        [btnRestore setTitle: NSLocalizedString(@"Restore", nil) forState:UIControlStateNormal];
-        [btnRestore setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btnRestore addTarget:self action:@selector(btnRestoreClick) forControlEvents:UIControlEventTouchUpInside];
-        [btnRestore setBackgroundImage:[[UIImage imageNamed:@"whiteBtn"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]
-                              forState:UIControlStateNormal];
-        [btnRestore setBackgroundImage:[[UIImage imageNamed:@"whiteBtnPush"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]
-                              forState:UIControlStateHighlighted];
-        [_purchaseDropboxModalView.contentView addSubview:btnRestore];
-    }
-    
-    return _purchaseDropboxModalView;
-}*/
 
 #pragma mark - PTPasscodeViewControllerDelegate
 
