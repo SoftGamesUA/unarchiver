@@ -121,6 +121,7 @@
         UIButton * btnArchive = [self customBtnWithFrame:btnFrame title:NSLocalizedString(@"Archive", nil)];
         btnArchive.frame = btnFrame;
         btnArchive.tag = ToolBarBtnArchive;
+        btnArchive.accessibilityLabel = [@"Archive" copy];
         [_btns addObject:btnArchive];
         [self addSubview:btnArchive];
         
