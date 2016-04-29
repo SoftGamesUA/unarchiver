@@ -74,11 +74,16 @@
 
 - (bool) unRar:(FileObject *)rar to:(NSString *)pathToUnRar
 {
+    return [self unRar:rar to:pathToUnRar password:nil];
+}
+
+- (bool) unRar:(FileObject *)rar to:(NSString *)pathToUnRar password:(NSString *)password
+{
 	if (!rar || !pathToUnRar) return false;
-    
-    URKArchive * unrar = [URKArchive rarArchiveAtPath:rar.path];
     NSError *error;
-    NSArray *files = [unrar listFiles:&error];
+    
+    URKArchive * unrar = [[URKArchive alloc] initWithPath:rar.path error:&error];
+    NSArray *files = [unrar listFilenames:&error];
     if (!files)
     {
         [unrar release];
@@ -102,7 +107,11 @@
 					
         }
 				
-        NSData *data = [[unrar extractDataFromFile:fileName error:&error] retain];
+        NSData *data = [[unrar extractDataFromFile:fileName progress:^(CGFloat percentDecompressed) {
+            //Can we show the progress from unrar files ))
+        } error:&error] retain];
+        //[[unrar extractDataFromFile:fileName error:&error] retain];
+        
 		[data writeToFile:[NSString stringWithFormat:@"%@/%@", pathToUnRar, fileName] atomically:YES];
         [data release];
     }
