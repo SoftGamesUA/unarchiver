@@ -313,7 +313,7 @@
 		2FCFA61116354B2B000B9D37 /* settingsBtnBoxnet.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FCFA5F716354B2B000B9D37 /* settingsBtnBoxnet.png */; };
 		2FCFA61416354B2B000B9D37 /* shareBtnBoxnet.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FCFA5F816354B2B000B9D37 /* shareBtnBoxnet.png */; };
 		2FCFA61816354B79000B9D37 /* boxnetNavBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FCFA61716354B79000B9D37 /* boxnetNavBarIcon.png */; };
-		2FD0E1A314FE2A0800A8C65A /* Unarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0E1A214FE2A0800A8C65A /* Unarchiver.m */; };
+		2FD0E1A314FE2A0800A8C65A /* Unarchiver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0E1A214FE2A0800A8C65A /* Unarchiver.mm */; };
 		2FD0E1B814FE2B3700A8C65A /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0E1AD14FE2B3700A8C65A /* ioapi.c */; };
 		2FD0E1B914FE2B3700A8C65A /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0E1AF14FE2B3700A8C65A /* mztools.c */; };
 		2FD0E1BA14FE2B3700A8C65A /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0E1B114FE2B3700A8C65A /* unzip.c */; };
@@ -328,6 +328,8 @@
 		2FFF5CF71679F35E00DF58B3 /* FileViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF5CF61679F35E00DF58B3 /* FileViewer.m */; };
 		2FFF5D011679FD6200DF58B3 /* VideoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF5D001679FD6200DF58B3 /* VideoViewer.m */; };
 		85CA25881821437300B38F43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CA25871821437300B38F43 /* Images.xcassets */; };
+		A03868911CDCD72C00851EB3 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A038688F1CDCD72C00851EB3 /* icon@2x.png */; };
+		A03868921CDCD72C00851EB3 /* icon@iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A03868901CDCD72C00851EB3 /* icon@iPad@2x.png */; };
 		A0AB393F1590B7EE00C68D26 /* NSDataBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AB39361590B7EE00C68D26 /* NSDataBase64.m */; };
 		A0AB39401590B7EE00C68D26 /* SKPluginTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AB39381590B7EE00C68D26 /* SKPluginTransaction.m */; };
 		A0AB39411590B7EE00C68D26 /* StoreKitBindingiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AB393A1590B7EE00C68D26 /* StoreKitBindingiOS.m */; };
@@ -823,7 +825,7 @@
 		2FCFA5F816354B2B000B9D37 /* shareBtnBoxnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareBtnBoxnet.png; sourceTree = "<group>"; };
 		2FCFA61716354B79000B9D37 /* boxnetNavBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boxnetNavBarIcon.png; sourceTree = "<group>"; };
 		2FD0E1A114FE2A0800A8C65A /* Unarchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unarchiver.h; sourceTree = "<group>"; };
-		2FD0E1A214FE2A0800A8C65A /* Unarchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unarchiver.m; sourceTree = "<group>"; };
+		2FD0E1A214FE2A0800A8C65A /* Unarchiver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Unarchiver.mm; sourceTree = "<group>"; };
 		2FD0E1AC14FE2B3700A8C65A /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		2FD0E1AD14FE2B3700A8C65A /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
 		2FD0E1AE14FE2B3700A8C65A /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
@@ -854,6 +856,8 @@
 		2FFF5D001679FD6200DF58B3 /* VideoViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewer.m; sourceTree = "<group>"; };
 		85CA25871821437300B38F43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A0162E171591393B0052BCF5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A038688F1CDCD72C00851EB3 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "Images/icon@2x.png"; sourceTree = "<group>"; };
+		A03868901CDCD72C00851EB3 /* icon@iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@iPad@2x.png"; sourceTree = "<group>"; };
 		A0AB39351590B7EE00C68D26 /* NSDataBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataBase64.h; sourceTree = "<group>"; };
 		A0AB39361590B7EE00C68D26 /* NSDataBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataBase64.m; sourceTree = "<group>"; };
 		A0AB39371590B7EE00C68D26 /* SKPluginTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPluginTransaction.h; sourceTree = "<group>"; };
@@ -1765,6 +1769,8 @@
 				2F9BD2A814D41BE400C42822 /* Window(iPad).xib */,
 				2F95817C162EA7AF00D99FF0 /* Images */,
 				85CA25871821437300B38F43 /* Images.xcassets */,
+				A038688F1CDCD72C00851EB3 /* icon@2x.png */,
+				A03868901CDCD72C00851EB3 /* icon@iPad@2x.png */,
 				2F9BD27914D40F6600C42822 /* Supporting Files */,
 			);
 			path = NewUnarchiver;
@@ -1874,7 +1880,7 @@
 			isa = PBXGroup;
 			children = (
 				2FD0E1A114FE2A0800A8C65A /* Unarchiver.h */,
-				2FD0E1A214FE2A0800A8C65A /* Unarchiver.m */,
+				2FD0E1A214FE2A0800A8C65A /* Unarchiver.mm */,
 				2FD0E1AA14FE2B3700A8C65A /* zip */,
 			);
 			name = Archives;
@@ -2171,6 +2177,7 @@
 				2F958232162EA7B000D99FF0 /* dropboxBorder.png in Resources */,
 				2F958233162EA7B000D99FF0 /* helpBtnDropbox.png in Resources */,
 				2F958234162EA7B000D99FF0 /* listBtnDropbox.png in Resources */,
+				A03868921CDCD72C00851EB3 /* icon@iPad@2x.png in Resources */,
 				2F958235162EA7B000D99FF0 /* settingsBtnDropBox.png in Resources */,
 				2F958236162EA7B000D99FF0 /* shareBtnDropbox.png in Resources */,
 				2F958237162EA7B000D99FF0 /* addBtnFolder.png in Resources */,
@@ -2195,6 +2202,7 @@
 				2F95825A162EA7B000D99FF0 /* folderNavBarIcon.png in Resources */,
 				2F95825B162EA7B000D99FF0 /* homeNavBarIcon.png in Resources */,
 				2F95825C162EA7B000D99FF0 /* imageIcon.png in Resources */,
+				A03868911CDCD72C00851EB3 /* icon@2x.png in Resources */,
 				2F95825D162EA7B000D99FF0 /* imageIconPush.png in Resources */,
 				2F95825E162EA7B000D99FF0 /* photoIcon.png in Resources */,
 				2F95825F162EA7B000D99FF0 /* photoIconPush.png in Resources */,
@@ -2385,7 +2393,7 @@
 				2F9C9B4314F3A78B005FE13D /* PopoverBgViewToolbarRed.m in Sources */,
 				2F99DC6814F651BA00F8E492 /* FolderVC.m in Sources */,
 				2F988A2D14FCF99D0049D322 /* MBProgressHUD.m in Sources */,
-				2FD0E1A314FE2A0800A8C65A /* Unarchiver.m in Sources */,
+				2FD0E1A314FE2A0800A8C65A /* Unarchiver.mm in Sources */,
 				2FD0E1B814FE2B3700A8C65A /* ioapi.c in Sources */,
 				2FD0E1B914FE2B3700A8C65A /* mztools.c in Sources */,
 				2FD0E1BA14FE2B3700A8C65A /* unzip.c in Sources */,
@@ -2622,7 +2630,7 @@
 					armv7,
 				);
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -2644,8 +2652,9 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitaliy Losi (5Z329PAF9T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2655,10 +2664,11 @@
 				GCC_PREFIX_HEADER = "NewUnarchiver/NewUnarchiver-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/config/Full/\"";
 				INFOPLIST_FILE = "NewUnarchiver/NewUnarchiver-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "384c2f40-d306-447f-be34-b3aab33c9a2c";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2670,8 +2680,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vitaliy Losi (U798KCHDW2)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2681,10 +2691,10 @@
 				GCC_PREFIX_HEADER = "NewUnarchiver/NewUnarchiver-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/config/Full/\"";
 				INFOPLIST_FILE = "NewUnarchiver/NewUnarchiver-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "87efb240-b8e2-4b83-b1aa-7d40cb219be0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2257a5a0-ab22-47a6-a6ec-d5f8a12ec48e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

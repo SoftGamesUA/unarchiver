@@ -262,8 +262,9 @@
 - (void) setLabelTextColor:(UIColor *)color
 {
     [_label setTextColor:color];
-    _toolBar.barTintColor = color;
-    
+    if ([_toolBar respondsToSelector:@selector(setBarTintColor:)]) {
+        _toolBar.barTintColor = color;
+    }
 }
 
 - (void) setLabelText:(NSString *)text

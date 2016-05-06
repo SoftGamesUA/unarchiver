@@ -8,7 +8,7 @@
 
 #import "Unarchiver.h"
 
-#import <UnrarKit/URKArchive.h>
+#import <UnrarKit/UnrarKit.h>
 
 @interface Unarchiver ()
 
