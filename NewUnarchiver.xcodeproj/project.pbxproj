@@ -328,6 +328,8 @@
 		2FFF5CF71679F35E00DF58B3 /* FileViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF5CF61679F35E00DF58B3 /* FileViewer.m */; };
 		2FFF5D011679FD6200DF58B3 /* VideoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF5D001679FD6200DF58B3 /* VideoViewer.m */; };
 		85CA25881821437300B38F43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CA25871821437300B38F43 /* Images.xcassets */; };
+		A0049AC61CDCE521002A2A33 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0049AC51CDCE521002A2A33 /* CoreBluetooth.framework */; };
+		A0049AC81CDCE528002A2A33 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0049AC71CDCE528002A2A33 /* SafariServices.framework */; };
 		A03868911CDCD72C00851EB3 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A038688F1CDCD72C00851EB3 /* icon@2x.png */; };
 		A03868921CDCD72C00851EB3 /* icon@iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A03868901CDCD72C00851EB3 /* icon@iPad@2x.png */; };
 		A0AB393F1590B7EE00C68D26 /* NSDataBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AB39361590B7EE00C68D26 /* NSDataBase64.m */; };
@@ -855,6 +857,8 @@
 		2FFF5CFF1679FD6200DF58B3 /* VideoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewer.h; sourceTree = "<group>"; };
 		2FFF5D001679FD6200DF58B3 /* VideoViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewer.m; sourceTree = "<group>"; };
 		85CA25871821437300B38F43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A0049AC51CDCE521002A2A33 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		A0049AC71CDCE528002A2A33 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		A0162E171591393B0052BCF5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A038688F1CDCD72C00851EB3 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "Images/icon@2x.png"; sourceTree = "<group>"; };
 		A03868901CDCD72C00851EB3 /* icon@iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@iPad@2x.png"; sourceTree = "<group>"; };
@@ -912,6 +916,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0049AC81CDCE528002A2A33 /* SafariServices.framework in Frameworks */,
+				A0049AC61CDCE521002A2A33 /* CoreBluetooth.framework in Frameworks */,
 				2FF4CD2D1678C2A2007CB95A /* QuartzCore.framework in Frameworks */,
 				2F1E203516661B7E00FFB0D3 /* MobileCoreServices.framework in Frameworks */,
 				2F55269115B4311E0013B024 /* AssetsLibrary.framework in Frameworks */,
@@ -1719,6 +1725,8 @@
 		2F9BD27114D40F6600C42822 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0049AC71CDCE528002A2A33 /* SafariServices.framework */,
+				A0049AC51CDCE521002A2A33 /* CoreBluetooth.framework */,
 				2FF4CD2C1678C2A2007CB95A /* QuartzCore.framework */,
 				2F1E203416661B7E00FFB0D3 /* MobileCoreServices.framework */,
 				2F55269015B4311D0013B024 /* AssetsLibrary.framework */,
@@ -2600,6 +2608,7 @@
 					armv7s,
 					armv7,
 				);
+				CLANG_CXX_LIBRARY = "libstdc++";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitaliy Losi (5Z329PAF9T)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2629,6 +2638,7 @@
 					armv7s,
 					armv7,
 				);
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
@@ -2681,7 +2691,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vitaliy Losi (U798KCHDW2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2695,7 +2705,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2257a5a0-ab22-47a6-a6ec-d5f8a12ec48e";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
