@@ -12,6 +12,7 @@
 #import "ClipboardManager.h"
 
 #import "PreviewVC.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface BasicVC ()
 
@@ -30,7 +31,9 @@
 - (void) setImageBorder:(UIImage *)img
 {
     imgViewTop.image = img;
-    imgViewBottom.image = img;
+    if ([imgViewBottom isKindOfClass:[UIImageView class]]) {
+        [(UIImageView*)imgViewBottom setImage:img];
+    }
 }
 
 - (void) initBorders
@@ -39,8 +42,23 @@
     imgViewTop.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:imgViewTop];
     
-    imgViewBottom = [[UIImageView alloc] initWithFrame:
-                      CGRectMake(0, self.view.frame.size.height - borderHeightBottom, self.view.frame.size.width, borderHeightBottom)];
+    if ([self isDropboxPurchased]) {
+        imgViewBottom = [[UIImageView alloc] initWithFrame:
+                         CGRectMake(0, self.view.frame.size.height - borderHeightBottom, self.view.frame.size.width, borderHeightBottom)];
+    }  else {
+        borderHeightBottom = 50;
+        imgViewBottom = [[GADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - borderHeightBottom, self.view.frame.size.width, borderHeightBottom)];
+        [(GADBannerView*)imgViewBottom setAdUnitID:@"ca-app-pub-2521062042739749/2808585317"];
+        [(GADBannerView*)imgViewBottom setRootViewController:self];
+        
+        GADRequest *request = [GADRequest request];
+       
+        request.testDevices = @[@"2077ef9a63d2b398840261c8221a0c9a"  // Eric's iPod Touch
+                                ];
+        [(GADBannerView*)imgViewBottom loadRequest:request];
+    }
+    
+    
     imgViewBottom.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;;
     [self.view addSubview:imgViewBottom];
 }
@@ -69,7 +87,7 @@
 {
     CGRect toolBarFrame = navBar.frame;
     toolBarFrame.size.height = toolBarHeight;
-    toolBarFrame.origin.y = self.view.frame.size.height  - toolBarHeight;
+    toolBarFrame.origin.y = self.view.frame.size.height  - toolBarHeight- borderHeightBottom;
     
     toolBar = [[ToolBar alloc] initWithFrame:toolBarFrame];
     toolBar.delegate = self;

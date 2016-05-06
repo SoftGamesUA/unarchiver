@@ -12,6 +12,8 @@
 #import "StoreKitBindingiOS.h"
 
 @class PreviewVC;
+//@class GADBannerView;
+
 @interface BasicVC : UIViewController <ToolBarBtnDelegate, NavBarDelegate, ModalViewDelegate, StoreKitBindingDelegate>
 {
     AppDelegate * appDelegate;
@@ -22,7 +24,8 @@
     bool isPreviewShownOnPhone;
     UIView * contentView;
     
-    UIImageView * imgViewTop, * imgViewBottom;
+    UIImageView * imgViewTop;
+    UIView *imgViewBottom;
 @private
     
     
@@ -35,6 +38,7 @@
 
 @property (nonatomic, retain) ModalView * purchaseDropboxModalView;
 @property (nonatomic, assign) bool isMaster;
+//@property(nonatomic, assign) IBOutlet GADBannerView *bannerView;
 
 - (id)initWithNavBarStyle:(NavBarStyle)navBarStyle toolbar:(bool)toolbar;
 - (void) setImageBorder:(UIImage *) img;
