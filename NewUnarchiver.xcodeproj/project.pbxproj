@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CDC66EFC7A44E3F869F00EB /* libPods-NewUnarchiver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC1BD40F8D0475A8089323E /* libPods-NewUnarchiver.a */; };
 		2F0F35D81651262100F0464C /* PTPasscodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F35D71651262100F0464C /* PTPasscodeViewController.m */; };
 		2F13841E1643E1D200CF30FD /* addBtnYandex.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1384141643E1D200CF30FD /* addBtnYandex.png */; };
 		2F1384211643E1D200CF30FD /* archiveBtnYandex.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1384151643E1D200CF30FD /* archiveBtnYandex.png */; };
@@ -327,6 +326,7 @@
 		2FFF5CE91679E78800DF58B3 /* HelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF5CE81679E78800DF58B3 /* HelpVC.m */; };
 		2FFF5CF71679F35E00DF58B3 /* FileViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF5CF61679F35E00DF58B3 /* FileViewer.m */; };
 		2FFF5D011679FD6200DF58B3 /* VideoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF5D001679FD6200DF58B3 /* VideoViewer.m */; };
+		3CEFB7B2EE648DF49274DBF0 /* Pods_NewUnarchiver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F497387DEFBFB94CB8AC8 /* Pods_NewUnarchiver.framework */; };
 		85CA25881821437300B38F43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CA25871821437300B38F43 /* Images.xcassets */; };
 		A03868911CDCD72C00851EB3 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A038688F1CDCD72C00851EB3 /* icon@2x.png */; };
 		A03868921CDCD72C00851EB3 /* icon@iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A03868901CDCD72C00851EB3 /* icon@iPad@2x.png */; };
@@ -855,6 +855,7 @@
 		2FFF5CFF1679FD6200DF58B3 /* VideoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewer.h; sourceTree = "<group>"; };
 		2FFF5D001679FD6200DF58B3 /* VideoViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewer.m; sourceTree = "<group>"; };
 		85CA25871821437300B38F43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		936F497387DEFBFB94CB8AC8 /* Pods_NewUnarchiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewUnarchiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0162E171591393B0052BCF5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A038688F1CDCD72C00851EB3 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "Images/icon@2x.png"; sourceTree = "<group>"; };
 		A03868901CDCD72C00851EB3 /* icon@iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@iPad@2x.png"; sourceTree = "<group>"; };
@@ -904,7 +905,6 @@
 		BAF97961164BC9AB00FC1C9D /* waveIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waveIcon.png; sourceTree = "<group>"; };
 		BAF97962164BC9AB00FC1C9D /* wavIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wavIcon.png; sourceTree = "<group>"; };
 		BAF97963164BC9AB00FC1C9D /* zipIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zipIcon.png; sourceTree = "<group>"; };
-		ECC1BD40F8D0475A8089323E /* libPods-NewUnarchiver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NewUnarchiver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -925,7 +925,7 @@
 				2F99AFF8150A19CA005B3AF7 /* MessageUI.framework in Frameworks */,
 				2FB3D40E150F620B00C4377A /* QuickLook.framework in Frameworks */,
 				2F976FDE15220BA000B1C988 /* SystemConfiguration.framework in Frameworks */,
-				0CDC66EFC7A44E3F869F00EB /* libPods-NewUnarchiver.a in Frameworks */,
+				3CEFB7B2EE648DF49274DBF0 /* Pods_NewUnarchiver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1731,7 +1731,7 @@
 				2F9BD27214D40F6600C42822 /* UIKit.framework */,
 				2F9BD27414D40F6600C42822 /* Foundation.framework */,
 				2F9BD27614D40F6600C42822 /* CoreGraphics.framework */,
-				ECC1BD40F8D0475A8089323E /* libPods-NewUnarchiver.a */,
+				936F497387DEFBFB94CB8AC8 /* Pods_NewUnarchiver.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2048,12 +2048,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F9BD28F14D40F6600C42822 /* Build configuration list for PBXNativeTarget "NewUnarchiver" */;
 			buildPhases = (
+				29E3098DA7E690D09196B187 /* [CP] Check Pods Manifest.lock */,
 				210821FFF6B14D819B8E9127 /* Check Pods Manifest.lock */,
 				2F9BD26A14D40F6600C42822 /* Sources */,
 				2F9BD26B14D40F6600C42822 /* Frameworks */,
 				2F9BD26C14D40F6600C42822 /* Resources */,
-				D85275977EE34A4188CB8749 /* Copy Pods Resources */,
-				457BAE65F4825653AA8F8ECA /* Embed Pods Frameworks */,
+				8248F9C5C79FAE8BAC8090E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2089,7 +2089,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = SoftGames;
 				TargetAttributes = {
 					2F9BD26D14D40F6600C42822 = {
@@ -2103,7 +2103,7 @@
 			};
 			buildConfigurationList = 2F9BD26814D40F6600C42822 /* Build configuration list for PBXProject "NewUnarchiver" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -2346,34 +2346,44 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		457BAE65F4825653AA8F8ECA /* Embed Pods Frameworks */ = {
+		29E3098DA7E690D09196B187 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NewUnarchiver-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewUnarchiver/Pods-NewUnarchiver-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D85275977EE34A4188CB8749 /* Copy Pods Resources */ = {
+		8248F9C5C79FAE8BAC8090E5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NewUnarchiver/Pods-NewUnarchiver-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UnrarKit/UnrarKit.framework",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UnrarKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewUnarchiver/Pods-NewUnarchiver-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewUnarchiver/Pods-NewUnarchiver-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2596,14 +2606,33 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv7s,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitaliy Losi (5Z329PAF9T)";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -2611,10 +2640,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2625,22 +2659,45 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv7s,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2653,6 +2710,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -2664,8 +2722,9 @@
 				GCC_PREFIX_HEADER = "NewUnarchiver/NewUnarchiver-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/config/Full/\"";
 				INFOPLIST_FILE = "NewUnarchiver/NewUnarchiver-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.softgames.unarchiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2681,6 +2740,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2691,7 +2751,8 @@
 				GCC_PREFIX_HEADER = "NewUnarchiver/NewUnarchiver-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/config/Full/\"";
 				INFOPLIST_FILE = "NewUnarchiver/NewUnarchiver-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.softgames.unarchiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2257a5a0-ab22-47a6-a6ec-d5f8a12ec48e";
@@ -2705,7 +2766,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2728,7 +2789,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = NewUnarchiverUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -2745,7 +2806,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2769,7 +2830,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = NewUnarchiverUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.softgames.NewUnarchiverUITests;
